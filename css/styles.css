@@ -17,7 +17,7 @@
   font-size: 20px;
 }
 .intro,.signin{
-  font-family: 'Montserrat Alternates', sans-serif;
+  font-family: 'Roboto', sans-serif;
   margin-top: 300px;
    
 }
@@ -31,7 +31,7 @@
 /* REGISTER */
 
 .title-form{
-  font-family: 'Montserrat Alternates', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 50px;
 }
 #label{
@@ -45,4 +45,8 @@
   margin-left: auto;
   margin-right: auto;
   font-size:150%;
+}
+span{
+  font-family: 'Roboto', sans-serif;
+  font-size:15px;
 }

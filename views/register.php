@@ -20,6 +20,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Montserrat+Alternates:wght@100;300;600&display=swap" rel="stylesheet">
 
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+
     <!-- CSS FILE -->
 
     <link rel="stylesheet" href="../css/styles.css">
@@ -42,7 +45,7 @@
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css" />
 
     <script src="../js/alertify.js"></script>
-  
+
 
 </head>
 
@@ -69,26 +72,30 @@
         <form action="regisAccepted.php" method="post" class="col s12">
             <div class="row">
                 <div class="input-field col s6"><br><br>
-                    <input id="username" type="text" class="validate" name="username">
-                    <label id="label" for="input_text">Username</label>
+                    <input id="username" type="text" class="validate" name="username" data-lenght="20">
+                    <label id="label" for="input_text">Username ( 20 characters maximum )</label>
                 </div>
                 <div class="input-field col s6"><br><br>
-                    <input id="input_text" type="email" class="validate" name="email">
-                    <label id="label" for="input_text">Email</label>
+                    <input id="email" type="email" class="validate" name="email">
+                    <label id="label" for="input_text">Email ( Right format, please )</label>
                 </div>
                 <div class="input-field col s6"><br><br>
-                    <input id="input_text" type="password" class="validate" name="password" data-lenght="10">
-                    <label id="label" for="input_text">Password</label>
+                    <input id="password" type="password" class="validate" name="password" data-length="10">
+                    <label id="label" for="input_text">Password ( 8 characters min )</label>
                 </div>
                 <div class=" input-field col s6"><br><br>
-                    <input id="input_text" type="password" class="validate" name="cpassword" data-lenght="10">
+                    <input id="cPassword" type="password" class="validate" name="cpassword" data-length="10">
                     <label id="label" for="input_text">Confirm password</label>
                 </div><br>
             </div>
-            <button id="send" class="waves-effect waves-light btn-large center-align" type="submit" name="submit" onclick="message()">Send</button>
+
+
+            <button id="send" class="waves-effect waves-light btn-large center-align" type="submit" name="submit">Send</button>
 
         </form>
     </div>
+
+
 
 
 
@@ -117,8 +124,9 @@
             var elems = document.querySelectorAll('.sidenav');
             var instances = M.Sidenav.init(elems);
         });
-
-        $('input#input_text').characterCounter();
+        $(document).ready(function() {
+            $('input#username', 'input#password').characterCounter();
+        });
     </script>
 
 </body>

@@ -4,7 +4,7 @@ CREATE TABLE usercat(
    id_user int (255) PRIMARY KEY AUTO_INCREMENT,
    username varchar (20) NOT null,
    user_mail varchar (40) NOT null,
-   user_password varchar (10) NOT null,
+   user_password varchar (20) NOT null,
    id_adult1 int (255),
    id_kitten1 int (255),
    id_special1 int (255),
