@@ -7,23 +7,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sing in</title>
 
-    <!-- Compiled and minified CSS 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">-->
+    <!-- MATERIALIZE -->
 
-    <!-- Materialize icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- MATERIALIZE ICONS -->
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <!-- Google fonts-->
+    <!-- GOOGLE FONTS-->
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Montserrat+Alternates:wght@100;300;600&display=swap" rel="stylesheet">
 
-    <!-- css file -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+
+    <!-- CSS FILE -->
+
     <link rel="stylesheet" href="../css/styles.css">
 
-    <!--MATERIALIZE-->
-    <link rel="stylesheet" href="../css/materialize/css/materialize.min.css">
+    <!--MATERIALIZE
+<link rel="stylesheet" href="../css/materialize/css/materialize.min.css"> -->
+
+    <!--FONT AWESOME-->
+
+    <link rel="stylesheet" href="../assets/fontAwesome/fontawesome/css/all.min.css">
+
+    <!-- JQUERY -->
+
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
+
+    <!-- Semantic UI theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css" />
+
+    <script src="../js/alertify.js"></script>
 
 </head>
 
@@ -32,12 +53,12 @@
 
     <!-- NAV -->
 
-    <nav class="blue darken-4">
+    <nav class="nav" style="background-image: linear-gradient(to right,#4A569D,#DC2424);min-height: 130px;">
         <div class="container ">
             <div class="nav-wrapper ">
-                <a id="logo" href="#" class="brand-logo">Catlovers</a>
+                <a id="logo" href="#" class="brand-logo">Catlovers</a><i class="fas fa-cat fa-5x"></i>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="../views/index.html">Home</a></li>
+                    <li><a href="../views/register.php">Back to register</a></li>
                 </ul>
             </div>
         </div>
@@ -67,46 +88,35 @@
         $result = $connection->prepare($sql_user);
 
         $result->bindParam(1, $username);
-        
+
 
         $result->execute();
         $count = $result->rowCount();
 
         if ($count != 0) {
 
-            echo "<div class='alert alert-danger' role='alert'>
-                  <button type='button' class='close' data-dismiss='alert'>&times;</button>
-                  <h3 id='message'>There is an user with the same username !</h3>
-                  </div>";
-            header("refresh:5;url=register.php");
+            echo "<div style='text-align:center;margin-top:140px;'>
+            <span id='message'>Username or email exist</span> 
+            </div>";
+            //header("refresh:5;url=register.php");
 
-            /* IF PASSWORDS DON´T COINCIDE */
-
-        } elseif ($password != $cPassword) {
-
-            echo "<div class='alert alert-danger' role='alert'>
-                  <button type='button' class='close' data-dismiss='alert'>&times;</button>
-                  <h3 id='message'>Password and confirm password don´t coincide !</h3>
-                  </div>";
-            header("refresh:5;url=register.php");
 
             /* INSERT USER */
-
         } else {
-            
+
             $sql_insert = "INSERT INTO usercat (username, user_mail, user_password) VALUES (?,?,?)";
             $result2 = $connection->prepare($sql_insert);
 
             $result2->bindParam(1, $username);
             $result2->bindParam(2, $email);
             $result2->bindParam(3, $password);
-            
+
 
             $result2->execute();
 
-            echo "<div class='alert alert-success' role='alert'>
-                  <button type='button' class='close' data-dismiss='alert'>&times;</button>
-                  <h3 id='message'>Thank you for the registration <strong> $username </strong>. We´ll redirect you to login page soon !</h3>
+            echo "<div style='text-align:center;margin-top:140px;'>
+                  <h2 id='message'>Thank you for the registration <strong> $username </strong>.</h2> 
+                  <h3>We´ll redirect you to login page soon !</h3>
                   </div>";
             header("refresh:10;url=login.php");
         }
@@ -118,9 +128,11 @@
 
     <!-- FOOTER -->
 
-    <footer class="footer-copyright blue-darker-4 center">
-        <div class="container">
-            Sergi Sánchez @2021
+    <footer class="page-footer" style="background-image: linear-gradient(to right,#4A569D,#DC2424); margin-top: 160px;">
+        <div class="footer-copyright">
+            <div class="container center">
+                Copyright © 2021 Sergi Sánchez
+            </div>
         </div>
     </footer>
 

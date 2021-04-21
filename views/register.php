@@ -73,18 +73,20 @@
             <div class="row">
                 <div class="input-field col s6"><br><br>
                     <input id="username" type="text" class="validate" name="username" data-lenght="20">
-                    <label id="label" for="input_text">Username ( 20 characters maximum )</label>
+                    <label id="label" for="input_text">Username ( 20 characters max )</label>
+                    <span id="estadousuario"></span>
                 </div>
                 <div class="input-field col s6"><br><br>
                     <input id="email" type="email" class="validate" name="email">
                     <label id="label" for="input_text">Email ( Right format, please )</label>
+                    <span id="estadoemail"></span>
                 </div>
                 <div class="input-field col s6"><br><br>
-                    <input id="password" type="password" class="validate" name="password" data-length="10">
+                    <input id="password" type="password" class="validate" name="password">
                     <label id="label" for="input_text">Password ( 8 characters min )</label>
                 </div>
                 <div class=" input-field col s6"><br><br>
-                    <input id="cPassword" type="password" class="validate" name="cpassword" data-length="10">
+                    <input id="cPassword" type="password" class="validate" name="cpassword">
                     <label id="label" for="input_text">Confirm password</label>
                 </div><br>
             </div>
@@ -124,9 +126,24 @@
             var elems = document.querySelectorAll('.sidenav');
             var instances = M.Sidenav.init(elems);
         });
-        $(document).ready(function() {
-            $('input#username', 'input#password').characterCounter();
-        });
+
+        function usernameValidate() {
+
+            $.ajax({
+                type: "POST",
+                url: "regisAccepted.php",
+                data: {
+                    "username": +$('#username').val(),
+                },
+                error: function() {
+                    alert("Noooo");
+                },
+                success: function(response) {
+                    alert(response);
+                }
+            });
+
+        }
     </script>
 
 </body>

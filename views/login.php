@@ -85,9 +85,9 @@
 
 
 
-   <!-- FOOTER -->
+    <!-- FOOTER -->
 
-   <footer class="page-footer" style="background-image: linear-gradient(to right,#4A569D,#DC2424);">
+    <footer class="page-footer" style="background-image: linear-gradient(to right,#4A569D,#DC2424);">
         <div class="footer-copyright">
             <div class="container center">
                 Copyright © 2021 Sergi Sánchez
@@ -110,10 +110,7 @@
             var elems = document.querySelectorAll('.sidenav');
             var instances = M.Sidenav.init(elems);
         });
-        $(document).ready(function() {
-            $('input#username', 'input#password').characterCounter();
-        });
-
+       
     </script>
 </body>
 
