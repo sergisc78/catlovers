@@ -75,9 +75,9 @@
     /* VARIABLES*/
 
     $username = $_POST['username'];
-    $password = $_POST['password'];
-    $cPassword = $_POST['cpassword'];
-    $email = $_POST['email'];
+    //$password = $_POST['password'];
+    //$cPassword = $_POST['cpassword'];
+    //$email = $_POST['email'];
 
 
     /* IF USER EXIST */
@@ -95,16 +95,18 @@
 
         if ($count != 0) {
 
-            echo "<div style='text-align:center;margin-top:140px;'>
+           /* echo "<div style='text-align:center;margin-top:140px;'>
             <span id='message'>Username or email exist</span> 
             </div>";
-            //header("refresh:5;url=register.php");
+            //header("refresh:5;url=register.php");*/
+
+            echo "Fucking shit";
 
 
             /* INSERT USER */
         } else {
 
-            $sql_insert = "INSERT INTO usercat (username, user_mail, user_password) VALUES (?,?,?)";
+          /*  $sql_insert = "INSERT INTO usercat (username, user_mail, user_password) VALUES (?,?,?)";
             $result2 = $connection->prepare($sql_insert);
 
             $result2->bindParam(1, $username);
@@ -118,7 +120,9 @@
                   <h2 id='message'>Thank you for the registration <strong> $username </strong>.</h2> 
                   <h3>We´ll redirect you to login page soon !</h3>
                   </div>";
-            header("refresh:10;url=login.php");
+            header("refresh:10;url=login.php");*/
+
+            echo "Fucking great";
         }
     }
 

@@ -36,12 +36,14 @@
 
     <!-- JQUERY -->
 
-    <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
     <!-- CSS -->
+
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
 
     <!-- Semantic UI theme -->
+
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css" />
 
     <script src="../js/alertify.js"></script>
@@ -74,13 +76,13 @@
                 <div class="input-field col s6"><br><br>
                     <input id="username" type="text" class="validate" name="username" data-lenght="20">
                     <label id="label" for="input_text">Username ( 20 characters max )</label>
-                    <span id="estadousuario"></span>
+                    <div id="result-username" style="font-size: 15px;"></div>
                 </div>
                 <div class="input-field col s6"><br><br>
                     <input id="email" type="email" class="validate" name="email">
                     <label id="label" for="input_text">Email ( Right format, please )</label>
-                    <span id="estadoemail"></span>
-                </div>
+                    <span id="result-email" style="font-size: 5px;"></span>
+                </div><br>
                 <div class="input-field col s6"><br><br>
                     <input id="password" type="password" class="validate" name="password">
                     <label id="label" for="input_text">Password ( 8 characters min )</label>
@@ -127,23 +129,46 @@
             var instances = M.Sidenav.init(elems);
         });
 
-        function usernameValidate() {
+        $(document).ready(function() {
 
-            $.ajax({
-                type: "POST",
-                url: "regisAccepted.php",
-                data: {
-                    "username": +$('#username').val(),
-                },
-                error: function() {
-                    alert("Noooo");
-                },
-                success: function(response) {
-                    alert(response);
-                }
+            $('#username').on('blur', function() {
+
+                $('#result-username').html('<img src="../assets/images/loader.gif"/>').fadeOut(1000);
+
+                var username = $(this).val();
+                var dataString = 'username=' + username;
+
+                $.ajax({
+                    type: "POST",
+                    url: "validateRegis.php",
+                    data: dataString,
+                    success: function(data) {
+                        $('#result-username').fadeIn(1000).html(data);
+
+                    }
+                });
             });
 
-        }
+            $('#email').on('blur', function() {
+
+                $('#result-email').html('<img src="../assets/images/loader.gif"/>').fadeOut(1000);
+
+                var email = $(this).val();
+                var dataString = 'email=' + email;
+
+                $.ajax({
+                    type: "POST",
+                    url: "validateRegis.php",
+                    data: dataString,
+                    success: function(data) {
+                        $('#result-email').fadeIn(1000).html(data);
+
+                    }
+                });
+            });
+
+
+        });
     </script>
 
 </body>
