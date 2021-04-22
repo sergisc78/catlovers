@@ -71,19 +71,19 @@
 
     <h3 class="title-form center">Create an account</h3>
     <div class="row">
-        <form action="regisAccepted.php" method="post" class="col s12">
+        <form action="validateRegis.php" method="post" class="col s12">
             <div class="row">
                 <div class="input-field col s6"><br><br>
-                    <input id="username" type="text" class="validate" name="username" data-lenght="20">
+                    <input id="username" type="text" class="validate" name="username" style="font-size: 25px;font-family: 'Roboto', sans-serif;">
                     <label id="label" for="input_text">Username ( 20 characters max )</label>
-                    <div id="result-username" style="font-size: 15px;"></div>
+                    <div id="result-username" style="font-size: 20px;font-family: 'Roboto', sans-serif;"></div>
                 </div>
                 <div class="input-field col s6"><br><br>
-                    <input id="email" type="email" class="validate" name="email">
+                    <input id="email" type="email" class="validate" name="email" style="font-size: 25px;font-family: 'Roboto', sans-serif;">
                     <label id="label" for="input_text">Email ( Right format, please )</label>
-                    <span id="result-email" style="font-size: 5px;"></span>
+                    <span id="result-email" style="font-size: 20px;font-family: 'Roboto', sans-serif;"></span>
                 </div><br>
-                <div class="input-field col s6"><br><br>
+                <div class=" input-field col s6"><br><br>
                     <input id="password" type="password" class="validate" name="password">
                     <label id="label" for="input_text">Password ( 8 characters min )</label>
                 </div>
@@ -129,6 +129,8 @@
             var instances = M.Sidenav.init(elems);
         });
 
+        /* JQUERY USERNAME AND EMAIL VALIDATION */
+
         $(document).ready(function() {
 
             $('#username').on('blur', function() {
@@ -149,6 +151,7 @@
                 });
             });
 
+
             $('#email').on('blur', function() {
 
                 $('#result-email').html('<img src="../assets/images/loader.gif"/>').fadeOut(1000);
@@ -158,15 +161,15 @@
 
                 $.ajax({
                     type: "POST",
-                    url: "validateRegis.php",
+                    url: "emailValidate.php",
                     data: dataString,
                     success: function(data) {
                         $('#result-email').fadeIn(1000).html(data);
 
                     }
                 });
-            });
 
+            });
 
         });
     </script>

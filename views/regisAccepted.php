@@ -36,7 +36,7 @@
 
     <!-- JQUERY -->
 
-    <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
     <!-- CSS -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
@@ -95,7 +95,7 @@
 
         if ($count != 0) {
 
-           /* echo "<div style='text-align:center;margin-top:140px;'>
+            /* echo "<div style='text-align:center;margin-top:140px;'>
             <span id='message'>Username or email exist</span> 
             </div>";
             //header("refresh:5;url=register.php");*/
@@ -106,7 +106,7 @@
             /* INSERT USER */
         } else {
 
-          /*  $sql_insert = "INSERT INTO usercat (username, user_mail, user_password) VALUES (?,?,?)";
+            /*  $sql_insert = "INSERT INTO usercat (username, user_mail, user_password) VALUES (?,?,?)";
             $result2 = $connection->prepare($sql_insert);
 
             $result2->bindParam(1, $username);

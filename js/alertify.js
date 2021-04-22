@@ -1,17 +1,6 @@
-/*function message(e) {
-  var username = document.getElementById('username').value;
-  if (username.length > 20) {
-    alertify.alert("Beware !","Username too long !");
-    e.preventDefault();
-  } else if ( username == "") {
-    alertify.alert("Beware !","Username can´t be empty");
-    e.preventDefault();
-  }
-}*/
-
 window.onload = function () {
   document.getElementById("send").addEventListener("click", function (e) {
-    
+
     /* VARIABLES */
 
     var username = document.getElementById("username").value,
@@ -19,7 +8,7 @@ window.onload = function () {
       password = document.getElementById("password").value,
       cPassword = document.getElementById("cPassword").value;
 
-    /* ERROR CONTROLS*/
+    /* ERROR CONTROLS */
 
     if (username.length > 20) {
       alertify.alert("Beware !", "Username too long ! 20 characters maximum !");
