@@ -71,7 +71,7 @@
 
     <h3 class="title-form center">Create an account</h3>
     <div class="row">
-        <form action="validateRegis.php" method="post" class="col s12">
+        <form id="form" action="regisAccepted.php" method="post" class="col s12">
             <div class="row">
                 <div class="input-field col s6"><br><br>
                     <input id="username" type="text" class="validate" name="username" style="font-size: 25px;font-family: 'Roboto', sans-serif;">
@@ -98,9 +98,6 @@
 
         </form>
     </div>
-
-
-
 
 
     <!-- FOOTER -->
@@ -133,7 +130,10 @@
 
         $(document).ready(function() {
 
-            $('#username').on('blur', function() {
+
+            /* USERNAME */
+
+            $('#username').on('blur', function(e) {
 
                 $('#result-username').html('<img src="../assets/images/loader.gif"/>').fadeOut(1000);
 
@@ -142,35 +142,41 @@
 
                 $.ajax({
                     type: "POST",
-                    url: "validateRegis.php",
+                    url: "usernamevalidate.php",
                     data: dataString,
                     success: function(data) {
-                        $('#result-username').fadeIn(1000).html(data);
-
-                    }
-                });
-            });
-
-
-            $('#email').on('blur', function() {
-
-                $('#result-email').html('<img src="../assets/images/loader.gif"/>').fadeOut(1000);
-
-                var email = $(this).val();
-                var dataString = 'email=' + email;
-
-                $.ajax({
-                    type: "POST",
-                    url: "emailValidate.php",
-                    data: dataString,
-                    success: function(data) {
-                        $('#result-email').fadeIn(1000).html(data);
+                        if (data == 0) {
+                            $('#result-username').fadeIn(1000).html(data);
+                            $("#username").val("");
+                        } else {
+                            $('#result-username').fadeIn(1000).html(data);
+                        }
 
                     }
                 });
 
-            });
+                /* EMAIL */
+                
+                $('#email').on('blur', function() {
 
+                    $('#result-email').html('<img src="../assets/images/loader.gif"/>').fadeOut(1000);
+
+                    var email = $(this).val();
+                    var dataString = 'email=' + email;
+
+                    $.ajax({
+                        type: "POST",
+                        url: "emailValidate.php",
+                        data: dataString,
+                        success: function(data) {
+                            $('#result-email').fadeIn(1000).html(data);
+
+                        }
+                    });
+
+                });
+
+            });
         });
     </script>
 

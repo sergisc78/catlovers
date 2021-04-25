@@ -22,17 +22,19 @@
 
     include('../views/config.php');
 
-    /* IF EMAIL IS AVAILABLE OR NOT */
-
     sleep(1);
+
+
+    /* IF USERNAME IS AVAILABLE OR NOT */
+
     if (isset($_POST)) {
 
 
-        $email = $_POST['email'];
-        $sql_email = 'SELECT * FROM usercat WHERE user_mail=?';
-        $result2 = $connection->prepare($sql_email);
+        $username = $_POST['username'];
+        $sql_user = 'SELECT * FROM usercat WHERE username=?';
+        $result2 = $connection->prepare($sql_user);
 
-        $result2->bindParam(1, $email);
+        $result2->bindParam(1, $username);
 
 
         $result2->execute();
@@ -40,9 +42,9 @@
 
 
         if ($count2 > 0) {
-            echo '<div class="alert alert-danger">Email already exist.</div>';
+            echo '<div class="alert alert-danger">Username exist</div>';
         } else {
-            echo '<div class="alert alert-success">Email available.</div>';
+            echo '<div class="alert alert-success">Username available.</div>';
         }
     }
 
