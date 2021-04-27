@@ -46,6 +46,8 @@
 
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css" />
 
+    <!-- JS SCRIPT -->
+    
     <script src="../js/alertify.js"></script>
 
 
@@ -71,7 +73,7 @@
 
     <h3 class="title-form center">Create an account</h3>
     <div class="row">
-        <form id="form" action="regisAccepted.php" method="post" class="col s12">
+        <form id="form" action="userRegisterAccepted.php" method="post" class="col s12">
             <div class="row">
                 <div class="input-field col s6"><br><br>
                     <input id="username" type="text" class="validate" name="username" style="font-size: 25px;font-family: 'Roboto', sans-serif;">
@@ -142,12 +144,11 @@
 
                 $.ajax({
                     type: "POST",
-                    url: "usernamevalidate.php",
+                    url: "validateUsername.php",
                     data: dataString,
                     success: function(data) {
                         if (data == 0) {
                             $('#result-username').fadeIn(1000).html(data);
-                            $("#username").val("");
                         } else {
                             $('#result-username').fadeIn(1000).html(data);
                         }
@@ -156,7 +157,7 @@
                 });
 
                 /* EMAIL */
-                
+
                 $('#email').on('blur', function() {
 
                     $('#result-email').html('<img src="../assets/images/loader.gif"/>').fadeOut(1000);
@@ -166,7 +167,7 @@
 
                     $.ajax({
                         type: "POST",
-                        url: "emailValidate.php",
+                        url: "validateEmail.php",
                         data: dataString,
                         success: function(data) {
                             $('#result-email').fadeIn(1000).html(data);

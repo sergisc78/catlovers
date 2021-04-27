@@ -25,14 +25,14 @@
 
     <!-- CSS FILE -->
 
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../../css/styles.css">
 
     <!--MATERIALIZE
 <link rel="stylesheet" href="../css/materialize/css/materialize.min.css"> -->
 
     <!--FONT AWESOME-->
 
-    <link rel="stylesheet" href="../assets/fontAwesome/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../../assets/fontAwesome/fontawesome/css/all.min.css">
 
     <!-- JQUERY -->
 
@@ -44,7 +44,7 @@
     <!-- Semantic UI theme -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css" />
 
-    <script src="../js/loginValidate.js"></script>
+
 
 </head>
 
@@ -57,9 +57,6 @@
         <div class="container ">
             <div class="nav-wrapper ">
                 <a id="logo" href="#" class="brand-logo">Catlovers</a><i class="fas fa-cat fa-5x"></i>
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="../views/login.php">Back to login</a></li>
-                </ul>
             </div>
         </div>
     </nav>
@@ -68,51 +65,45 @@
 
     <?php
 
-    include('../views/config.php');
-
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+    include('../../views/config.php');
 
 
-    /* IF USER EXIST */
+    $admin_name = $_POST['admin_name'];
+    $admin_password = $_POST['admin_password'];
 
-    if (isset($_POST['submit'])) {
+    $sql_admin = 'SELECT * FROM admin WHERE admin_name=? and admin_password=?';
+    $result = $connection->prepare($sql_admin);
 
-        $sql_user = 'SELECT * FROM admin WHERE username=? and user_password=?';
-        $result = $connection->prepare($sql_user);
+    $result->bindParam(1, $admin_name);
+    $result->bindParam(2, $admin_password);
 
-        $result->bindParam(1, $username);
-        $result->bindParam(2, $password);
-
-        $result->execute();
-        $count = $result->rowCount();
+    $result->execute();
+    $count = $result->rowCount();
 
 
-        if ($count != 0) {
+    if ($count != 0) {
 
-            session_start(); // IF USER EXIST, SESSION STARTS
+        session_start(); // IF USER EXIST, SESSION STARTS
 
-            $_SESSION = $_POST['username'];
+        $_SESSION = $_POST['admin_name'];
 
-            echo "<div class='alert alert-success' role='alert'>
-                  <button type='button' class='close' data-dismiss='alert'>&times;</button>
-                  <h3 id='message'>Welcome back $username !</h3>
-                  </div>";
+        /* echo "<div style='text-align:center;margin-top:140px;'>
+                 
+                  <h3 id='message'>Welcome back $admin_name !</h3>
+                  </div>";*/
 
-            //header("refresh:5;url=opcions.php");
+        header("Location:menu.php");
 
-        } else { // IF USER DOESN´T EXIST OR WRONG DATA
+    } else { // IF USER DOESN´T EXIST OR WRONG DATA
 
-            echo "<div style='text-align:center;margin-top:140px;'>
-                 <h2 id='message'>Username or email incorrect !</h2>
+        echo "<div style='text-align:center;margin-top:140px;'>
+                 <h2 id='message'>Username or password incorrect !</h2>
                  <h3 id='message'>Try it again !</h3>
                  </div>";
 
-            //header("refresh:5;url=login.php");
-        }
+        header("refresh:5;url=admin.php");
     }
-
-
+    
     ?>
 
 

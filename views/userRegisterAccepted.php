@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login validation</title>
+    <title>Sign in</title>
 
     <!-- MATERIALIZE -->
 
@@ -36,7 +36,7 @@
 
     <!-- JQUERY -->
 
-    <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
     <!-- CSS -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
@@ -44,7 +44,9 @@
     <!-- Semantic UI theme -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css" />
 
-    <script src="../js/loginValidate.js"></script>
+    <!-- JS SCRIPT -->
+    
+    <script src="../js/alertify.js"></script>
 
 </head>
 
@@ -58,7 +60,7 @@
             <div class="nav-wrapper ">
                 <a id="logo" href="#" class="brand-logo">Catlovers</a><i class="fas fa-cat fa-5x"></i>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="../views/login.php">Back to login</a></li>
+                    <li><a href="../views/userRegister.php">Back to register</a></li>
                 </ul>
             </div>
         </div>
@@ -68,47 +70,60 @@
 
     <?php
 
+    /* CONFIG FILE*/
+
     include('../views/config.php');
+
+    /* VARIABLES*/
 
     $username = $_POST['username'];
     $password = $_POST['password'];
+    $cPassword = $_POST['cpassword'];
+    $email = $_POST['email'];
 
 
     /* IF USER EXIST */
 
     if (isset($_POST['submit'])) {
 
-        $sql_user = 'SELECT * FROM usercat WHERE username=? and user_password=?';
+        $sql_user = 'SELECT * FROM usercat WHERE username=?';
         $result = $connection->prepare($sql_user);
 
         $result->bindParam(1, $username);
-        $result->bindParam(2, $password);
+
 
         $result->execute();
         $count = $result->rowCount();
 
-
         if ($count != 0) {
 
-            session_start(); // IF USER EXIST, SESSION STARTS
+             echo "<div style='text-align:center;margin-top:140px;font-size:50px;'>
+            <span id='message'>Watch out ! Username or email exist !</span> 
+            </div>";
+             
+            header("refresh:5;url=register.php");
 
-            $_SESSION = $_POST['username'];
+            
+            /* INSERT USER */
+        } else {
 
-            echo "<div class='alert alert-success' role='alert'>
-                  <button type='button' class='close' data-dismiss='alert'>&times;</button>
-                  <h3 id='message'>Welcome back $username !</h3>
-                  </div>";
+             $sql_insert = "INSERT INTO usercat (username, user_mail, user_password) VALUES (?,?,?)";
+            $result2 = $connection->prepare($sql_insert);
 
-            //header("refresh:5;url=opcions.php");
+            $result2->bindParam(1, $username);
+            $result2->bindParam(2, $email);
+            $result2->bindParam(3, $password);
 
-        } else { // IF USER DOESN´T EXIST OR WRONG DATA
+
+            $result2->execute();
 
             echo "<div style='text-align:center;margin-top:140px;'>
-                 <h2 id='message'>Username or email incorrect !</h2>
-                 <h3 id='message'>Try it again !</h3>
-                 </div>";
+                  <h2 id='message'>Thank you for the registration <strong> $username </strong></h2> 
+                  <h3>We´ll redirect you to login page !</h3>
+                  </div>";
+            header("refresh:10;url=login.php");
 
-            //header("refresh:5;url=login.php");
+           
         }
     }
 
@@ -129,7 +144,6 @@
 
     <!-- Compiled and minified JavaScript 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>-->
-
 
     <script src="css/materialize/js/materialize.min.js"></script>
 

@@ -25,14 +25,14 @@
 
     <!-- CSS FILE -->
 
-    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../css/styles.css">
 
     <!--MATERIALIZE
     <link rel="stylesheet" href="../css/materialize/css/materialize.min.css"> -->
 
     <!--FONT AWESOME-->
 
-    <link rel="stylesheet" href="../../assets/fontAwesome/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../assets/fontAwesome/fontawesome/css/all.min.css">
 
     <!-- JQUERY -->
 
@@ -44,7 +44,7 @@
     <!-- Semantic UI theme -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css" />
 
-    <script src="../../js/alertify.js"></script>
+    <script src="../js/alertify.js"></script>
 </head>
 
 <body>
@@ -56,7 +56,7 @@
             <div class="nav-wrapper ">
                 <a id="logo" href="#" class="brand-logo">Catlovers</a><i class="fas fa-cat fa-5x"></i>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a id="options" href="../../views/index.html">Home</a></li>
+                    <li><a id="options" href="../views/index.html">Home</a></li>
                 </ul>
             </div>
         </div>
@@ -64,16 +64,16 @@
 
     <!-- FORM LOGIN -->
 
-    <h3 class="title-form center">Admin Login</h3>
+    <h3 class="title-form center">Login</h3>
     <div class="row">
-        <form action="adminValidate.php" method="post" class="col s12">
+        <form action="validateLogin.php" method="post" class="col s12">
             <div class="row">
                 <div class="input-field col s6"><br><br>
-                    <input id="username" type="text" class="validate" name="username" data-lenght="20">
+                    <input id="username" type="text" class="validate" name="username" style="font-size: 25px;font-family: 'Roboto', sans-serif;">
                     <label id="label" for="icon_text">Username</label>
                 </div>
                 <div class="input-field col s6"><br><br>
-                    <input id="password" type="text" class="validate" name="password" data-lenght="10">
+                    <input id="password" type="password" class="validate" name="password" style="font-size: 25px;font-family: 'Roboto', sans-serif;">
                     <label id="label" for="icon_prefix">Password</label>
                 </div>
             </div>

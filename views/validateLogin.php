@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Login validation</title>
 
     <!-- MATERIALIZE -->
 
@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="../css/styles.css">
 
     <!--MATERIALIZE
-    <link rel="stylesheet" href="../css/materialize/css/materialize.min.css"> -->
+<link rel="stylesheet" href="../css/materialize/css/materialize.min.css"> -->
 
     <!--FONT AWESOME-->
 
@@ -44,10 +44,12 @@
     <!-- Semantic UI theme -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css" />
 
-    <script src="../js/alertify.js"></script>
+   
+
 </head>
 
 <body>
+
 
     <!-- NAV -->
 
@@ -56,38 +58,59 @@
             <div class="nav-wrapper ">
                 <a id="logo" href="#" class="brand-logo">Catlovers</a><i class="fas fa-cat fa-5x"></i>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a id="options" href="../views/index.html">Home</a></li>
+                    <li><a href="../views/userLogin.php">Back to login</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- FORM LOGIN -->
+    <!-- PHP -->
 
-    <h3 class="title-form center">Login</h3>
-    <div class="row">
-        <form action="loginValidate.php" method="post" class="col s12">
-            <div class="row">
-                <div class="input-field col s6"><br><br>
-                    <input id="username" type="text" class="validate" name="username" data-lenght="20">
-                    <label id="label" for="icon_text">Username</label>
-                </div>
-                <div class="input-field col s6"><br><br>
-                    <input id="password" type="text" class="validate" name="password" data-lenght="10">
-                    <label id="label" for="icon_prefix">Password</label>
-                </div>
-            </div>
-            <button id="send" class="waves-effect waves-light btn-large center-align" type="submit" name="submit">Login</button>
-        </form>
-    </div>
+    <?php
+
+    include('../views/config.php');
+
+    /* IF USER EXIST */
 
 
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    $sql_user = 'SELECT * FROM usercat WHERE username=? and user_password=?';
+    $result = $connection->prepare($sql_user);
+
+    $result->bindParam(1, $username);
+    $result->bindParam(2, $password);
+
+    $result->execute();
+    $count = $result->rowCount();
 
 
+    if ($count != 0) {
+
+        session_start(); // IF USER EXIST, SESSION STARTS
+
+        $_SESSION = $_POST['username'];
+
+        header("Location:userMenuCats.php");
+
+    } else { // IF USER DOESN´T EXIST OR WRONG DATA
+
+        echo "<div style='text-align:center;margin-top:140px;'>
+                 <h2 id='message'>Username or email incorrect !</h2>
+                 <h3 id='message'>Try it again !</h3>
+                 </div>";
+
+        header("refresh:5;url=userLogin.php");
+    }
+
+
+
+    ?>
 
     <!-- FOOTER -->
 
-    <footer class="page-footer" style="background-image: linear-gradient(to right,#4A569D,#DC2424);">
+    <footer class="page-footer" style="background-image: linear-gradient(to right,#4A569D,#DC2424); margin-top: 160px;">
         <div class="footer-copyright">
             <div class="container center">
                 Copyright © 2021 Sergi Sánchez
@@ -95,23 +118,13 @@
         </div>
     </footer>
 
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
-    <!-- <script src="css/materialize/js/materialize.min.js"></script> -->
-
-    <!-- JAVASCRIPT ALERTIFY -->
-    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+    <!-- Compiled and minified JavaScript 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>-->
 
 
+    <script src="css/materialize/js/materialize.min.js"></script>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var elems = document.querySelectorAll('.sidenav');
-            var instances = M.Sidenav.init(elems);
-        });
-       
-    </script>
 </body>
 
 </html>

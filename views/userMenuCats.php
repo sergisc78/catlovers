@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catlovers</title>
+    <title>Menu</title>
 
     <!-- Compiled and minified CSS 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">-->
@@ -17,9 +17,7 @@
     <!-- Google fonts-->
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat&family=Montserrat+Alternates:wght@100;300;600&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Montserrat+Alternates:wght@100;300;600&display=swap" rel="stylesheet">
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
@@ -37,7 +35,6 @@
 
 <body>
 
-
     <!-- NAV -->
 
     <nav class=" nav" style=" background-image: linear-gradient(to right,#4A569D,#DC2424);min-height: 130px;">
@@ -53,51 +50,35 @@
         </div>
     </nav>
 
+    <?php
+
+    include('../views/config.php');
+
+    ?>
+
     <!--INTRO -->
 
 
     <div class="intro center" style="margin-top:150px;">
-        <h4>Are you a catlover? Would you like to adopt an adult cat or a kitten?.</h4>
-        <h4> Sign up and find your partner !</h4><br>
-        <a href="../views/userRegister.php"><button class="waves-effect waves-light btn-large"
-                style="background-image: linear-gradient(to right,#4A569D,#DC2424);font-size:150%;">Sign up
-                !</button></a>
+        <h4>Choose an option below to check the cats we have for adoption</h4><br>
+        <a href="#"><button class="waves-effect waves-light btn-large" style="background-image: linear-gradient(to right,#4A569D,#DC2424);font-size:150%;">Adult cats
+            </button></a>
+        <a href="#"><button class="waves-effect waves-light btn-large" style="background-image: linear-gradient(to right,#4A569D,#DC2424);font-size:150%;">Kitten
+            </button></a>
+        <a href="#"><button class="waves-effect waves-light btn-large" style="background-image: linear-gradient(to right,#4A569D,#DC2424);font-size:150%;">Special cases
+            </button></a>
+
     </div>
 
 
 
     <!-- FOOTER -->
+    <!-- FOOTER -->
 
-    <footer class="page-footer" style="background-image: linear-gradient(to right,#4A569D,#DC2424);">
-        <div class="container">
-            <div class="row">
-                <div class="col l6 s12">
-                    <h5 class="white-text">Contact Us</h5>
-                    <p class="grey-text text-lighten-4">Street of dreams, 189 2ª 2</p>
-                    <p class="grey-text text-lighten-4">80032 Barcelona,Spain</p>
-                    <p class="grey-text text-lighten-4">Telephone : 93 xxx xx xx xx</p>
-                    <p class="grey-text text-lighten-4">Mobile : xxx xx xx xx</p>
-                    <p class="grey-text text-lighten-4">Email : catlovers@gmail.com</p>
-                </div>
-                <div class="col l4 offset-l2 s12">
-                    <h5 class="white-text">Social Media</h5>
-                    <ul>
-                        <li><a class=" social grey-text text-lighten-3" href="https://es-es.facebook.com">Facebook : <i
-                                    class="social fab fa-facebook-square"></i></a></li>
-                        <li><a class=" social grey-text text-lighten-3" href="https://twitter.com">Twitter : <i
-                                    class="fab fa-twitter"></i></a></li>
-                        <li><a class="social grey-text text-lighten-3" href="https://www.instagram.com">Instagram : <i
-                                    class="fab fa-instagram"></i></a></li>
-                        <li><a class=" social grey-text text-lighten-3" href="https://www.youtube.com">Youtube channel :
-                                <i class="fab fa-youtube"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+    <footer class="page-footer" style="background-image: linear-gradient(to right,#4A569D,#DC2424); margin-top: 160px;">
         <div class="footer-copyright">
             <div class="container center">
                 Copyright © 2021 Sergi Sánchez
-
             </div>
         </div>
     </footer>
@@ -112,7 +93,7 @@
 
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             var elems = document.querySelectorAll('.sidenav');
             var instances = M.Sidenav.init(elems);
         });
