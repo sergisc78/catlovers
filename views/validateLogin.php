@@ -44,7 +44,9 @@
     <!-- Semantic UI theme -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css" />
 
-   
+    <!-- JS FILE -->
+    <script src="../js/alertify.js"></script>
+
 
 </head>
 
@@ -93,7 +95,6 @@
         $_SESSION = $_POST['username'];
 
         header("Location:userMenuCats.php");
-
     } else { // IF USER DOESN´T EXIST OR WRONG DATA
 
         echo "<div style='text-align:center;margin-top:140px;'>

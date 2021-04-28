@@ -92,7 +92,7 @@
                   <h3 id='message'>Welcome back $admin_name !</h3>
                   </div>";*/
 
-        header("Location:menu.php");
+        header("Location:adminMenuCats.php");
 
     } else { // IF USER DOESN´T EXIST OR WRONG DATA
 

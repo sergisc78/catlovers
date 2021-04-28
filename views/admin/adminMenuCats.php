@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Admin menu</title>
 
     <!-- MATERIALIZE -->
 
@@ -44,7 +44,7 @@
     <!-- Semantic UI theme -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css" />
 
-    <script src="../../js/login.js"></script>
+
 
 </head>
 
@@ -63,25 +63,41 @@
         </div>
     </nav>
 
-    <!-- FORM LOGIN -->
+    <!-- MENU -->
 
-    <h3 class="title-form center">Admin Login</h3>
-    <div class="row">
-        <form action="adminLoginValidate.php" method="post" class="col s12">
-            <div class="row">
-                <div class="input-field col s6"><br><br>
-                    <input id="username" type="text" class="validate" name="admin_name" style="font-size: 25px;font-family: 'Roboto', sans-serif;">
-                    <label id="label" for="icon_text">Username</label>
-                    <div id="result-username" style="font-size: 20px;font-family: 'Roboto', sans-serif;"></div>
-                </div>
-                <div class="input-field col s6"><br><br>
-                    <input id="password" type="text" class="validate" name="admin_password" style="font-size: 25px;font-family: 'Roboto', sans-serif;">
-                    <label id="label" for="icon_prefix">Password</label>
-                </div>
-            </div>
-            <button id="send" class="waves-effect waves-light btn-large center-align" type="submit" name="submit">Login</button>
-        </form>
+    <!-- Dropdown Trigger -->
+
+    <div class="intro center" style="margin-top:140px;">
+        <h4>You can consult or add cats or you can also consult users.</h4><br><br><br>
+        <a class='dropdown-trigger btn-large' href='#' data-target='dropdown1' style="background-image: linear-gradient(to right,#4A569D,#DC2424);font-size:150%;">Adult cats</a>
+
+        <!-- Dropdown Structure -->
+        <ul id='dropdown1' class='dropdown-content'>
+            <li><a href="addAdultCat.php" style="background-image: linear-gradient(to right,#4A569D,#DC2424);font-size:150%;color:white">Add an adult cat</a></li>
+            <li><a href="#!" style="background-image: linear-gradient(to right,#4A569D,#DC2424);font-size:150%;color:white"> Consult adult cats</li>
+        </ul>
+
+        <a class='dropdown-trigger btn-large' href='#' data-target='dropdown2' style="background-image: linear-gradient(to right,#4A569D,#DC2424);font-size:150%;">Kitten</a>
+
+        <ul id='dropdown2' class='dropdown-content'>
+            <li><a href="#!" style="background-image: linear-gradient(to right,#4A569D,#DC2424);font-size:150%;color:white">Add a kitten</a></li>
+            <li><a href="#!" style="background-image: linear-gradient(to right,#4A569D,#DC2424);font-size:150%;color:white">Consult kitten</li>
+        </ul>
+
+        <a class='dropdown-trigger btn-large' href='#' data-target='dropdown3' style="background-image: linear-gradient(to right,#4A569D,#DC2424);font-size:150%;">Special cases</a>
+
+        <ul id='dropdown3' class='dropdown-content'>
+            <li><a href="#!" style="background-image: linear-gradient(to right,#4A569D,#DC2424);font-size:150%;color:white">Add a special case</a></li>
+            <li><a href="#!" style="background-image: linear-gradient(to right,#4A569D,#DC2424);font-size:150%;color:white">Consult special cases</li>
+        </ul>
+
+        <a class='dropdown-trigger btn-large' href='#' data-target='dropdown4' style="background-image: linear-gradient(to right,#4A569D,#DC2424);font-size:150%;color:white">Users</a>
+
+        <ul id='dropdown4' class='dropdown-content'>
+            <li><a href="#!" style="background-image: linear-gradient(to right,#4A569D,#DC2424);font-size:150%;color:white">Consult users</a></li>
+        </ul>
     </div>
+
 
     <!-- FOOTER -->
 
@@ -108,6 +124,10 @@
             var elems = document.querySelectorAll('.sidenav');
             var instances = M.Sidenav.init(elems);
         });
+
+        /* DROPDOWN */
+
+        $('.dropdown-trigger').dropdown();
     </script>
 </body>
 

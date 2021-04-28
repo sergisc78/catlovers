@@ -44,7 +44,9 @@
     <!-- Semantic UI theme -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css" />
 
-    <script src="../js/alertify.js"></script>
+    <!-- JS FILE -->
+    <script src="../js/login.js"></script>
+
 </head>
 
 <body>
@@ -82,9 +84,6 @@
     </div>
 
 
-
-
-
     <!-- FOOTER -->
 
     <footer class="page-footer" style="background-image: linear-gradient(to right,#4A569D,#DC2424);">
@@ -110,7 +109,6 @@
             var elems = document.querySelectorAll('.sidenav');
             var instances = M.Sidenav.init(elems);
         });
-       
     </script>
 </body>
 

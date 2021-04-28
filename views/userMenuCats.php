@@ -60,7 +60,7 @@
 
 
     <div class="intro center" style="margin-top:150px;">
-        <h4>Choose an option below to check the cats we have for adoption</h4><br>
+        <h4>Choose an option to consult the cats we have for adoption</h4><br>
         <a href="#"><button class="waves-effect waves-light btn-large" style="background-image: linear-gradient(to right,#4A569D,#DC2424);font-size:150%;">Adult cats
             </button></a>
         <a href="#"><button class="waves-effect waves-light btn-large" style="background-image: linear-gradient(to right,#4A569D,#DC2424);font-size:150%;">Kitten
