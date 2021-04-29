@@ -48,7 +48,7 @@
 
     <!-- JS SCRIPT -->
 
-    <script src="../js/alertify.js"></script>
+    <script src="../../js/adultCat.js"></script>
 
 
 </head>
@@ -69,99 +69,52 @@
     </nav>
 
 
-    <!-- FORM REGISTER -->
+    <!-- FORM ADD ADULT CAT -->
 
     <h3 class="title-form center">Add an adult cat</h3>
     <div class="row">
-        <form id="form" action="#" method="post" class="col s12">
+        <form id="form" action="insertAdult.php" method="post" class="col s12">
             <div class="row">
                 <br>
-                <div class="input-field col s6"><br><br>
-                    <input id="name" type="text" class="validate" name="name" style="font-size: 25px;font-family: 'Roboto', sans-serif;">
-                    <label id="label" for="input_text">Cat´s name </label>
-                    <div id="result-username" style="font-size: 20px;font-family: 'Roboto', sans-serif;"></div>
-                </div>
-                <div class="input-field col s6"><br><br>
-                    <input id="age" type="email" class="validate" name="age" style="font-size: 25px;font-family: 'Roboto', sans-serif;">
-                    <label id="label" for="input_text">Age</label>
-
-                </div><br>
-                <div class="input-field col s6"><br><br>
-                    <input id="sex" type="password" class="validate" name="sex" style="font-size: 25px;font-family: 'Roboto', sans-serif;">
-                    <label id="label" for="input_text">Sex</label>
-                </div>
-                <div class="input-field col s6"><br><br>
-                    <textarea id="textarea1" class="materialize-textarea" style="font-size: 25px;font-family: 'Roboto', sans-serif;"></textarea>
-                    <label for="textarea1" style="font-family: 'Montserrat', sans-serif;font-size: 25px;color: black;">Description</label>
-                </div>
-                
-                    <div class="file-field col s6"><br>
-                        <div class="btn">
-                            <span>Image</span>
+                <div class="file-field col s6"><br><br>
+                    <div class="file-field input-field">
+                        <div class="btn-large">
+                            <span>Add a cat image</span>
                             <input type="file">
                         </div>
                         <div class="file-path-wrapper">
-                            <input class="file-path validate" type="text" placeholder="Upload one or more files">
+                            <input class="file-path validate" type="text" name="image">
                         </div>
                     </div>
-                
+                </div>
+                <div class="input-field col s6"><br><br>
+                    <input id="name_adult" type="text" class="validate" name="name_adult" style="font-size: 25px;font-family: 'Roboto', sans-serif;">
+                    <label id="label" for="input_text">Cat´s name </label>
+                    <div id="result-catname" style="font-size: 20px;font-family: 'Roboto', sans-serif;"></div>
+                </div>
+                <div class="input-field col s6"><br><br>
+                    <input id="age" type="text" class="validate" name="age_adult" style="font-size: 25px;font-family: 'Roboto', sans-serif;">
+                    <label id="label" for="input_text">Age</label>
+                </div><br>
+                <div class="input-field col s6"><br><br>
+                    <input id="sex" type="text" class="validate" name="sex_adult" style="font-size: 25px;font-family: 'Roboto', sans-serif;">
+                    <label id="label" for="input_text">Sex</label>
+                </div>
+                <div class="input-field col s6"><br><br>
+                    <textarea id="textarea1" name="descr_adult" class="materialize-textarea" style="font-size: 25px;font-family: 'Roboto', sans-serif;"></textarea>
+                    <label for="textarea1" style="font-family: 'Montserrat', sans-serif;font-size: 25px;color: black;">Description</label>
+                </div>
+                <div class="input-field col s6"><br><br>
+                    <input id="virus" type="text" class="validate" name="virus" style="font-size: 25px;font-family: 'Roboto', sans-serif;">
+                    <label id="label" for="input_text">FIV / FeLV / FHV / FCV</label>
+                </div>
 
             </div><br>
-
 
             <button id="send" class="waves-effect waves-light btn-large center-align" type="submit" name="submit">Send</button>
 
         </form>
     </div>
-    <!--
-
-    <div class="container">
-
-        <div class="row">
-            <form action="" class="col s12">
-
-                <div class="row card-panel">
-
-                    <div class="input-field col s6">
-                        <input type="text" name="name" id="name" class="validate" required style="font-size: 25px;font-family: 'Roboto', sans-serif;">
-                        <label for="name">Cat´s name</label>
-                    </div>
-
-                    <div class="input-field col s6">
-                        <input type="text" name="age" id="age" class="validate" required>
-                        <label for="age">Age</label>
-                    </div><br>
-
-                    <div class="input-field col s6">
-                        <input type="text" name="sex" id="sex" class="validate" required>
-                        <label for="sex">Sex</label>
-                    </div>
-
-                    <div class="input-field col s6">
-                        <textarea id="textarea1" class="materialize-textarea" required></textarea>
-                        <label for="textarea">Description</label>
-                    </div>
-
-                    <div class="input-field col s6"><br><br>
-                        <input id="image" type="file" class="validate" name="image">
-                        <label id="label" for="input_text">Image</label><br>
-
-                    </div><br>
-
-                    
-
-                </div>
-
-
-                <button id="send" class="waves-effect waves-light btn-large center-align" type="submit" name="submit">Send</button>
-
-
-
-        </div>
-        </form>
-
-    </div>
-    </div>-->
 
 
     <!-- FOOTER -->
@@ -192,6 +145,35 @@
 
         $('#textarea1').val('');
         M.textareaAutoResize($('#textarea1'));
+
+
+        /* JQUERY CATNAME VALIDATION */
+
+        $(document).ready(function() {
+
+            $('#name_adult').on('blur', function(e) {
+
+                $('#result-catname').html('<img src="../../assets/images/loader.gif"/>').fadeOut(1000);
+
+                var name = $(this).val();
+                var dataString = 'name_adult=' + name;
+
+                $.ajax({
+                    type: "POST",
+                    url: "../admin/validateCatName.php",
+                    data: dataString,
+                    success: function(data) {
+
+                        if (data == 0) {
+                            $('#result-catname').fadeIn(1000).html(data);
+                        } else {
+                            $('#result-catname').fadeIn(1000).html(data);
+                        }
+
+                    }
+                });
+            });
+        });
     </script>
 
 </body>
