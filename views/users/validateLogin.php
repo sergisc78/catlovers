@@ -25,7 +25,7 @@
 
     <!-- CSS FILE -->
 
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../../css/styles.css">
 
     <!--MATERIALIZE
 <link rel="stylesheet" href="../css/materialize/css/materialize.min.css"> -->
@@ -45,7 +45,7 @@
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css" />
 
     <!-- JS FILE -->
-    <script src="../js/alertify.js"></script>
+    <script src="../../js/alertify.js"></script>
 
 
 </head>

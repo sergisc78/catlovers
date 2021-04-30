@@ -73,7 +73,7 @@
 
     <h3 class="title-form center">Add an adult cat</h3>
     <div class="row">
-        <form id="form" action="insertAdult.php" method="post" class="col s12">
+        <form id="form" action="insertAdult.php" method="post" class="col s12" enctype="multipart/form-data">
             <div class="row">
                 <br>
                 <div class="file-field col s6"><br><br>

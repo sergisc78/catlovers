@@ -25,14 +25,14 @@
 
     <!-- CSS FILE -->
 
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../../css/styles.css">
 
     <!--MATERIALIZE
     <link rel="stylesheet" href="../css/materialize/css/materialize.min.css"> -->
 
     <!--FONT AWESOME-->
 
-    <link rel="stylesheet" href="../assets/fontAwesome/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../../assets/fontAwesome/fontawesome/css/all.min.css">
 
     <!-- JQUERY -->
 
@@ -45,7 +45,7 @@
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css" />
 
     <!-- JS FILE -->
-    <script src="../js/login.js"></script>
+    <script src="../../js/login.js"></script>
 
 </head>
 
@@ -58,7 +58,7 @@
             <div class="nav-wrapper ">
                 <a id="logo" href="#" class="brand-logo">Catlovers</a><i class="fas fa-cat fa-5x"></i>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a id="options" href="../views/index.html">Home</a></li>
+                    <li><a id="options" href="../../views/index.html">Home</a></li>
                 </ul>
             </div>
         </div>

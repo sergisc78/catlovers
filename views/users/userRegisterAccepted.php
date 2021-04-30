@@ -25,14 +25,14 @@
 
     <!-- CSS FILE -->
 
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../../css/styles.css">
 
     <!--MATERIALIZE
 <link rel="stylesheet" href="../css/materialize/css/materialize.min.css"> -->
 
     <!--FONT AWESOME-->
 
-    <link rel="stylesheet" href="../assets/fontAwesome/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../../assets/fontAwesome/fontawesome/css/all.min.css">
 
     <!-- JQUERY -->
 
@@ -46,7 +46,7 @@
 
     <!-- JS SCRIPT -->
     
-    <script src="../js/alertify.js"></script>
+    <script src="../../js/alertify.js"></script>
 
 </head>
 
@@ -60,7 +60,7 @@
             <div class="nav-wrapper ">
                 <a id="logo" href="#" class="brand-logo">Catlovers</a><i class="fas fa-cat fa-5x"></i>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="../views/userRegister.php">Back to register</a></li>
+                    <li><a href="../users/userRegister.php">Back to register</a></li>
                 </ul>
             </div>
         </div>
@@ -72,7 +72,7 @@
 
     /* CONFIG FILE*/
 
-    include('../views/config.php');
+    include('../../views/config.php');
 
     /* VARIABLES*/
 
@@ -98,10 +98,11 @@
         if ($count != 0) {
 
              echo "<div style='text-align:center;margin-top:140px;font-size:50px;'>
-            <span id='message'>Watch out ! Username or email exist !</span> 
+            <h2 id='message'>Watch out ! Username or email exist !</h2> 
+            <h3>Try it again !</h3>
             </div>";
              
-            header("refresh:5;url=register.php");
+            header("refresh:5;url=userRegister.php");
 
             
             /* INSERT USER */
@@ -119,9 +120,9 @@
 
             echo "<div style='text-align:center;margin-top:140px;'>
                   <h2 id='message'>Thank you for the registration <strong> $username </strong></h2> 
-                  <h3>We´ll redirect you to login page !</h3>
+                  <h3>We´ll redirect you to menu page !</h3>
                   </div>";
-            header("refresh:10;url=login.php");
+            header("refresh:10;url=userMenuCats.php");
 
            
         }

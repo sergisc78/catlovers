@@ -25,14 +25,14 @@
 
     <!-- CSS FILE -->
 
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../../css/styles.css">
 
     <!--MATERIALIZE
     <link rel="stylesheet" href="../css/materialize/css/materialize.min.css"> -->
 
     <!--FONT AWESOME-->
 
-    <link rel="stylesheet" href="../assets/fontAwesome/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../../assets/fontAwesome/fontawesome/css/all.min.css">
 
     <!-- JQUERY -->
 
@@ -48,7 +48,7 @@
 
     <!-- JS SCRIPT -->
     
-    <script src="../js/alertify.js"></script>
+    <script src="../../js/alertify.js"></script>
 
 
 </head>
@@ -62,7 +62,7 @@
             <div class="nav-wrapper ">
                 <a id="logo" href="#" class="brand-logo">Catlovers</a><i class="fas fa-cat fa-5x"></i>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a id="options" href="../views/index.html" class="home">Home</a></li>
+                    <li><a id="options" href="../../views/index.html" class="home">Home</a></li>
                 </ul>
             </div>
         </div>
@@ -137,14 +137,14 @@
 
             $('#username').on('blur', function(e) {
 
-                $('#result-username').html('<img src="../assets/images/loader.gif"/>').fadeOut(1000);
+                $('#result-username').html('<img src="../../assets/images/loader.gif"/>').fadeOut(1000);
 
                 var username = $(this).val();
                 var dataString = 'username=' + username;
 
                 $.ajax({
                     type: "POST",
-                    url: "validateUsername.php",
+                    url: "../users/validateUsername.php",
                     data: dataString,
                     success: function(data) {
                         if (data == 0) {
@@ -160,14 +160,14 @@
 
                 $('#email').on('blur', function() {
 
-                    $('#result-email').html('<img src="../assets/images/loader.gif"/>').fadeOut(1000);
+                    $('#result-email').html('<img src="../../assets/images/loader.gif"/>').fadeOut(1000);
 
                     var email = $(this).val();
                     var dataString = 'email=' + email;
 
                     $.ajax({
                         type: "POST",
-                        url: "validateEmail.php",
+                        url: "../users/validateEmail.php",
                         data: dataString,
                         success: function(data) {
                             $('#result-email').fadeIn(1000).html(data);

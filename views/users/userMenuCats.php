@@ -23,13 +23,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
 
     <!-- css file -->
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../../css/styles.css">
 
     <!--MATERIALIZE-->
-    <link rel="stylesheet" href="../css/materialize/css/materialize.min.css">
+    <link rel="stylesheet" href="../../css/materialize/css/materialize.min.css">
 
     <!--FONT AWESOME-->
-    <link rel="stylesheet" href="../assets/fontAwesome/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../../assets/fontAwesome/fontawesome/css/all.min.css">
 
 </head>
 
@@ -52,7 +52,7 @@
 
     <?php
 
-    include('../views/config.php');
+    include('../../views/config.php');
 
     ?>
 
