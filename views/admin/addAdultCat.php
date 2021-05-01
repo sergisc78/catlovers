@@ -80,10 +80,10 @@
                     <div class="file-field input-field">
                         <div class="btn-large">
                             <span>Add a cat image</span>
-                            <input type="file">
+                            <input type="file" name="image_adult">
                         </div>
                         <div class="file-path-wrapper">
-                            <input class="file-path validate" type="text" name="image">
+                            <input class="file-path validate" type="text" name="image_adult">
                         </div>
                     </div>
                 </div>

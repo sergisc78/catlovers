@@ -72,14 +72,7 @@
 
     /* CONFIG FILE*/
 
-    include('../../views/config.php');
-
-    /* VARIABLES TO UPLOAD IMAGE*/
-
-    $image_adult = $_FILES['image_adult']['name'];
-    $type=$_FILES['image_adult']['type'];
-    $size=$_FILES['image_adult']['size'];
-    $temp = $_FILES['image_adult']['tmp_name'];
+    include('../../config/config.php');
 
     /* VARIABLES*/
 
@@ -90,9 +83,16 @@
     $virus = $_POST['virus'];
 
 
-    /* IF CAT NAME EXIST */
+    /* IF CAT EXIST */
 
     if (isset($_POST['submit'])) {
+
+        /* VARIABLES TO UPLOAD IMAGE*/
+
+        $image_adult = $_FILES['image_adult']['name'];
+        $type = $_FILES['image_adult']['type'];
+        $size = $_FILES['image_adult']['size'];
+        $temp = $_FILES['image_adult']['tmp_name'];
 
         $sql_adult = 'SELECT * FROM adultcat WHERE name_adult=?';
         $result = $connection->prepare($sql_adult);
@@ -121,27 +121,20 @@
             /* INSERT IMAGE */
 
             if (!((strpos($type, "gif") || strpos($type, "jpeg") || strpos($type, "jpg") || strpos($type, "png")) && ($size < 2000000))) {
-                /*echo '<div><b>Error. La extensión o el tamaño de los archivos no es correcta.<br/>
-                - Se permiten archivos .gif, .jpg, .png. y de 200 kb como máximo.</b></div>';*/
-             }
-             else {
-                //Si la imagen es correcta en tamaño y tipo
-                //Se intenta subir al servidor
-                if (move_uploaded_file($temp, 'assets/images/'.$image_adult)) {
-                    //Cambiamos los permisos del archivo a 777 para poder modificarlo posteriormente
-                    chmod('assets/images/'.$image_adult, 0777);
-                    //Mostramos el mensaje de que se ha subido co éxito
-                    echo '<div><b>Se ha subido correctamente la imagen.</b></div>';
-                    //Mostramos la imagen subida
-                    echo '<p><img src="assets/images/'.$image_adult.'"></p>';
+                  echo '<div><b>Error ! extension or size is not right.<br/>
+                - Files allowed .gif, .jpg, .png. and 200 kb at most.</b></div>';
+            } else {
 
+                // IF IMAGE IS RIGHT
+                
+                if (move_uploaded_file($temp, '../../assets/images/' . $image_adult)) {
 
+                    // WE CHANGE PERMITS
+                    chmod('../../assets/images/' . $image_adult, 0777);
+
+                } else { // ERROR
+                    echo '<div><b>There is an error uploading image</b></div>';
                 }
-
-                else {
-                    //Si no se ha podido subir la imagen, mostramos un mensaje de error
-                    echo '<div><b>There is an error uplouding image</b></div>';
-                 }
             }
 
             $sql_insert = "INSERT INTO adultcat (image_adult,name_adult,age_adult, sex_adult, descr_adult,virus) VALUES (?,?,?,?,?,?)";

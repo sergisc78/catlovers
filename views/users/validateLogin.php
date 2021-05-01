@@ -70,7 +70,7 @@
 
     <?php
 
-    include('../views/config.php');
+    include('../../config/config.php');
 
     /* IF USER EXIST */
 

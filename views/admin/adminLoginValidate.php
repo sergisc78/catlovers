@@ -65,7 +65,7 @@
 
     <?php
 
-    include('../../views/config.php');
+    include('../../config/config.php');
 
 
     $admin_name = $_POST['admin_name'];

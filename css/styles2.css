@@ -1,0 +1,11 @@
+/* CSS VIEWADULTCATS */
+
+td {
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+}
+thead {
+  font-family: "Montserrat", sans-serif;
+  font-size: 25px;
+  background-image: linear-gradient(to right, #dae2f8, #d6a4a4);
+}
