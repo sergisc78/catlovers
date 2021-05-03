@@ -83,7 +83,7 @@
 
     $adultCats = $result->rowCount();
 
-    //$image = $_FILES['image_adult']['name'];
+
 
     if ($adultCats != 0) {
         $i = 0;
@@ -91,66 +91,68 @@
 
 
     ?>
-        <div class="container">
-            <?php
-            foreach ($result as $results) {
-                
-            ?>
-                    <div class="row ">
 
-                        <div class="col">
+        <?php
+        foreach ($result as $results) {
+            $image = $results['image_adult'];
+        ?>
+            <div class="container">
+                <div class="row ">
 
-                           <img src="/assets/images/<?php echo $results['image_adult']?>"><br>
-                            <div class="col adult">Name:<?php echo $results['name_adult'] ?></div>
-                            <div class="col adult"> Age :<?php echo $results['age_adult'] ?></div>
-                            <div class="col adult">Sex : <?php echo $results['sex_adult'] ?></div><br>
-                            <div class="col adult">Virus: <?php echo $results['virus'] ?></div>
-                            <div class="col adult">Description : <?php echo $results['descr_adult'] ?></div>
+                    <div class="col">
+
+                        <div><img src='../../assets/images/<?php echo $image ?>' width="50%"></div><br>
+                        <div class="col adult">Name:<?php echo $results['name_adult'] ?></div>
+                        <div class="col adult"> Age :<?php echo $results['age_adult'] ?></div>
+                        <div class="col adult">Sex : <?php echo $results['sex_adult'] ?></div><br>
+                        <div class="col adult">Virus: <?php echo $results['virus'] ?></div>
+                        <div class="col adult">Description : <?php echo $results['descr_adult'] ?></div>
 
 
-
-                        </div>
 
                     </div>
 
-        <?php
-                
-            }
-        } else {
-            echo "Aqui no hay nadie xD";
-        }
-
-        ?>
-
-
-
-
-        <!-- FOOTER -->
-
-        <footer class="page-footer" style="background-image: linear-gradient(to right,#4A569D,#DC2424);">
-            <div class="footer-copyright">
-                <div class="container center">
-                    Copyright © 2021 Sergi Sánchez
                 </div>
             </div>
-        </footer>
 
-        <!-- Compiled and minified JavaScript -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <?php
 
-        <!-- <script src="css/materialize/js/materialize.min.js"></script> -->
+        }
+    } else {
+        echo "Aqui no hay nadie xD";
+    }
 
-        <!-- JAVASCRIPT ALERTIFY -->
-        <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+    ?>
 
 
 
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                var elems = document.querySelectorAll('.sidenav');
-                var instances = M.Sidenav.init(elems);
-            });
-        </script>
+
+    <!-- FOOTER -->
+
+    <footer class="page-footer" style="background-image: linear-gradient(to right,#4A569D,#DC2424);">
+        <div class="footer-copyright">
+            <div class="container center">
+                Copyright © 2021 Sergi Sánchez
+            </div>
+        </div>
+    </footer>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!-- <script src="css/materialize/js/materialize.min.js"></script> -->
+
+    <!-- JAVASCRIPT ALERTIFY -->
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.sidenav');
+            var instances = M.Sidenav.init(elems);
+        });
+    </script>
 
 </body>
 
