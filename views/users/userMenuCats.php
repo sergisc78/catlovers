@@ -7,14 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu</title>
 
-    <!-- Compiled and minified CSS 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">-->
+    <!-- MATERIALIZE -->
 
-    <!-- Materialize icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- MATERIALIZE ICONS -->
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <!-- Google fonts-->
+    <!-- GOOGLE FONTS-->
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Montserrat+Alternates:wght@100;300;600&display=swap" rel="stylesheet">
@@ -22,18 +23,44 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
 
-    <!-- css file -->
+    <!-- CSS FILE -->
+
     <link rel="stylesheet" href="../../css/styles.css">
 
-    <!--MATERIALIZE-->
-    <link rel="stylesheet" href="../../css/materialize/css/materialize.min.css">
+    <!--MATERIALIZE
+    <link rel="stylesheet" href="../css/materialize/css/materialize.min.css"> -->
 
     <!--FONT AWESOME-->
+
     <link rel="stylesheet" href="../../assets/fontAwesome/fontawesome/css/all.min.css">
+
+    <!-- JQUERY -->
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
+
+    <!-- Semantic UI theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css" />
 
 </head>
 
 <body>
+
+
+    <?php
+
+    session_start();
+
+    if (!isset($_SESSION['username'])) { // SINO HA FET LOGIN NO ES POT ENTRAR A L´APLICACIÓ
+
+        header("location:userLogin.php");
+    }
+
+    ?>
+
+
 
     <!-- NAV -->
 
@@ -42,26 +69,20 @@
             <div class="nav-wrapper ">
                 <a id="logo" href="#" class="brand-logo">Catlovers</a><i class="fas fa-cat fa-5x"></i>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a id="options" href="../views/aboutUs.html">About us</a></li>
-                    <li><a id="options" href="../views/userRegister.php">Blog</a></li>
-                    <li><a id="options" href="../views/userLogin.php">Login</a></li>
+                    <li><a id="options" href="../index.html" title="Exit">Log out</a></li>
+                    
                 </ul>
             </div>
         </div>
     </nav>
 
-    <?php
-
-    include('../../config/config.php');
-
-    ?>
 
     <!--INTRO -->
 
 
     <div class="intro center" style="margin-top:150px;">
         <h4>Choose an option to consult the cats we have for adoption</h4><br>
-        <a href="#"><button class="waves-effect waves-light btn-large" style="background-image: linear-gradient(to right,#4A569D,#DC2424);font-size:150%;">Adult cats
+        <a href="viewAdultCats.php"><button class="waves-effect waves-light btn-large" style="background-image: linear-gradient(to right,#4A569D,#DC2424);font-size:150%;">Adult cats
             </button></a>
         <a href="#"><button class="waves-effect waves-light btn-large" style="background-image: linear-gradient(to right,#4A569D,#DC2424);font-size:150%;">Kitten
             </button></a>
@@ -72,7 +93,6 @@
 
 
 
-    <!-- FOOTER -->
     <!-- FOOTER -->
 
     <footer class="page-footer" style="background-image: linear-gradient(to right,#4A569D,#DC2424); margin-top: 160px;">

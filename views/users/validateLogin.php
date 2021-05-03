@@ -92,7 +92,7 @@
 
         session_start(); // IF USER EXIST, SESSION STARTS
 
-        $_SESSION = $_POST['username'];
+        $_SESSION['username'] = $_POST['username'];
 
         header("Location:userMenuCats.php");
     } else { // IF USER DOESN´T EXIST OR WRONG DATA

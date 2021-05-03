@@ -85,7 +85,7 @@
 
         session_start(); // IF USER EXIST, SESSION STARTS
 
-        $_SESSION = $_POST['admin_name'];
+        $_SESSION['admin_name'] = $_POST['admin_name'];
 
         /* echo "<div style='text-align:center;margin-top:140px;'>
                  

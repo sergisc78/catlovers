@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add adult cat</title>
+    <title>View adult cats</title>
 
     <!-- MATERIALIZE -->
 
@@ -48,7 +48,7 @@
 
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css" />
 
-   
+
 
 
 </head>
@@ -86,8 +86,6 @@
     if ($result != 0) {
         $i = 0;
 
-
-
     ?>
 
         <table class=" highlight centered responsive-table col s3">
@@ -113,13 +111,14 @@
                 foreach ($result as $results) {
 
                 ?> <tr>
-                        <td ><?php echo $results['id_adult'] ?></td>
-                        <td ><?php echo $results['name_adult'] ?></td>
-                        <td ><?php echo $results['age_adult'] ?></td>
-                        <td ><?php echo $results['sex_adult'] ?></td>
-                        <td ><?php echo $results['virus'] ?></td>
-                        <td ><span class="material-icons" title="View cat">visibility</span>&nbsp;&nbsp;&nbsp;<span class="material-icons" title="Delete cat">delete</span></td>
-                        
+                        <td><?php echo $results['id_adult'] ?></td>
+                        <td><?php echo $results['name_adult'] ?></td>
+                        <td><?php echo $results['age_adult'] ?></td>
+                        <td><?php echo $results['sex_adult'] ?></td>
+                        <td><?php echo $results['virus'] ?></td>
+                        <td><span class="material-icons" title="View cat">visibility</span>&nbsp;&nbsp;&nbsp;<span class="material-icons" title="edit cat">edit
+                            </span>&nbsp;&nbsp;&nbsp;<span class="material-icons" title="Delete cat">delete</span></td>
+
                     </tr>
 
                 <?php
@@ -132,11 +131,6 @@
     <?php
 
     } ?>
-
-
-
-
-
 
 
     <!-- FOOTER -->
@@ -158,17 +152,11 @@
     <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
 
 
-   
-
-    <script src="main.js"></script>
-
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             var elems = document.querySelectorAll('.sidenav');
             var instances = M.Sidenav.init(elems);
         });
-
-       
     </script>
 
 </body>

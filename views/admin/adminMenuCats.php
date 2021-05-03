@@ -44,11 +44,20 @@
     <!-- Semantic UI theme -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css" />
 
-
-
 </head>
 
 <body>
+
+    <?php
+
+    session_start();
+
+    if (!isset($_SESSION['admin_name'])) { // SINO HA FET LOGIN NO ES POT ENTRAR A L´APLICACIÓ
+
+        header("location:adminLogin.php");
+    }
+
+    ?>
 
     <!-- NAV -->
 
@@ -57,7 +66,7 @@
             <div class="nav-wrapper ">
                 <a id="logo" href="#" class="brand-logo">Catlovers</a><i class="fas fa-cat fa-5x"></i>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a id="options" href="../../views/index.html">Home</a></li>
+                    <a href="../index.html" class="btn-large" style="background-image: linear-gradient(to right,#4A569D,#DC2424);font-size:100%;color:white">Log out</a>
                 </ul>
             </div>
         </div>
@@ -128,6 +137,7 @@
         /* DROPDOWN */
 
         $('.dropdown-trigger').dropdown();
+
     </script>
 </body>
 

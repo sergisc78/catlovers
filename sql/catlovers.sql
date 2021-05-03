@@ -20,7 +20,8 @@ CREATE TABLE adultcat(
    name_adult varchar (20) NOT null,
    age_adult varchar (25) NOT null,
    sex_adult varchar (10) NOT null,
-   descr_adult varchar (500) NOT null
+   descr_adult varchar (500) NOT null,
+   virus varchar (40) NOT null
 );
 
 CREATE TABLE kitten(
@@ -29,7 +30,8 @@ CREATE TABLE kitten(
    name_kitten varchar (20) NOT null,
    age_kitten varchar (25) NOT null,
    sex_kitten varchar (10) NOT null,
-   descr_kitten varchar (500) NOT null
+   descr_kitten varchar (500) NOT null,
+   virus varchar (40) NOT null
 );    
 
 
@@ -39,7 +41,8 @@ CREATE TABLE special(
    name_special varchar (20) NOT null,
    age_special varchar (25) NOT null,
    sex_special varchar (10) NOT null,
-   descr_special varchar (500) NOT null
+   descr_special varchar (500) NOT null,
+   virus varchar (40) NOT null
 ); 
 
 CREATE TABLE admin (
