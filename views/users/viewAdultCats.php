@@ -62,7 +62,7 @@
             <div class="nav-wrapper ">
                 <a id="logo" href="#" class="brand-logo">Catlovers</a><i class="fas fa-cat fa-5x"></i>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a id="options" href="../../views/admin/adminMenuCats.php" title="back to options" class="home">Home</a></li>
+                    <li><a id="options" href="../../views/users/userMenuCats.php" title="back to options" class="home">Home</a></li>
                 </ul>
             </div>
         </div>
@@ -83,35 +83,35 @@
 
     $adultCats = $result->rowCount();
 
-
+    //IF THERE IS ANY CAT
 
     if ($adultCats != 0) {
-        $i = 0;
-
-
-
+        
     ?>
 
         <?php
         foreach ($result as $results) {
             $image = $results['image_adult'];
         ?>
-            <div class="container">
-                <div class="row ">
 
-                    <div class="col">
+            <div class="row" style="margin-left: 350px; margin-top:20px;display:inline-block;font-size:25px">
+                <div class="col s8 m12">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="../../assets/images/<?php echo $image ?>" width="20%">
 
-                        <div><img src='../../assets/images/<?php echo $image ?>' width="50%"></div><br>
-                        <div class="col adult">Name:<?php echo $results['name_adult'] ?></div>
-                        <div class="col adult"> Age :<?php echo $results['age_adult'] ?></div>
-                        <div class="col adult">Sex : <?php echo $results['sex_adult'] ?></div><br>
-                        <div class="col adult">Virus: <?php echo $results['virus'] ?></div>
-                        <div class="col adult">Description : <?php echo $results['descr_adult'] ?></div>
-
-
-
+                        </div>
+                        <div class="card-content center">
+                            <p style=" font-family: 'Montserrat', sans-serif;">Name : <?php echo $results['name_adult'] ?></p>
+                            <p style=" font-family: 'Montserrat', sans-serif;">Age : <?php echo $results['age_adult'] ?></p>
+                            <p style=" font-family: 'Montserrat', sans-serif;">Sex: <?php echo $results['sex_adult'] ?></p>
+                            <p style=" font-family: 'Montserrat', sans-serif;">Virus: <?php echo $results['virus'] ?></p>
+                            <p style=" font-family: 'Montserrat', sans-serif;">Description : <?php echo $results['descr_adult'] ?> </p>
+                        </div>
+                        <div class="button">
+                            <button class="btn-large" style="display:block;margin-left: auto;margin-right: auto;background-image: linear-gradient(to right,#4A569D,#DC2424);font-size:25px">Would you like to adopt me ?</button>
+                        </div><br>
                     </div>
-
                 </div>
             </div>
 
@@ -119,7 +119,7 @@
 
         }
     } else {
-        echo "Aqui no hay nadie xD";
+        echo "<p style=text-align:center>There´s no cats to show</p>";
     }
 
     ?>

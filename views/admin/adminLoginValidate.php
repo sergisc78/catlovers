@@ -87,11 +87,6 @@
 
         $_SESSION['admin_name'] = $_POST['admin_name'];
 
-        /* echo "<div style='text-align:center;margin-top:140px;'>
-                 
-                  <h3 id='message'>Welcome back $admin_name !</h3>
-                  </div>";*/
-
         header("Location:adminMenuCats.php");
 
     } else { // IF USER DOESN´T EXIST OR WRONG DATA
@@ -101,7 +96,7 @@
                  <h3 id='message'>Try it again !</h3>
                  </div>";
 
-        header("refresh:5;url=admin.php");
+        header("refresh:5;url=adminLogin.php");
     }
     
     ?>

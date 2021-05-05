@@ -121,7 +121,7 @@
             /* INSERT IMAGE */
 
             if (!((strpos($type, "gif") || strpos($type, "jpeg") || strpos($type, "jpg") || strpos($type, "png")) && ($size < 2000000))) {
-                  echo '<div><b>Error ! extension or size is not right.<br/>
+                  echo '<div style:"text-align:center"><b>Error ! extension or size is not right.<br/>
                 - Files allowed .gif, .jpg, .png. and 200 kb at most.</b></div>';
             } else {
 
@@ -153,9 +153,9 @@
 
             echo "<div style='text-align:center;margin-top:140px;font-size:50px;'>
                   <h2 id='message'> Great !</h2>
-                  <h2 id='message'> $name_adult has been registered successfully in the database !</h2> 
+                  <h2 id='message'> $name_adult has been registered successfully in the database... wait !</h2> 
                   </div>";
-            //header("refresh:6;url=adminMenuCats.php");
+            header("refresh:8;url=adminMenuCats.php");
         }
     }
 

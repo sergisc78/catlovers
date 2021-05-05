@@ -75,7 +75,7 @@
                     <div id="result-username" style="font-size: 20px;font-family: 'Roboto', sans-serif;"></div>
                 </div>
                 <div class="input-field col s6"><br><br>
-                    <input id="password" type="text" class="validate" name="admin_password" style="font-size: 25px;font-family: 'Roboto', sans-serif;">
+                    <input id="password" type="password" class="validate" name="admin_password" style="font-size: 25px;font-family: 'Roboto', sans-serif;">
                     <label id="label" for="icon_prefix">Password</label>
                 </div>
             </div>

@@ -69,8 +69,7 @@
             <div class="nav-wrapper ">
                 <a id="logo" href="#" class="brand-logo">Catlovers</a><i class="fas fa-cat fa-5x"></i>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a id="options" href="../index.html" title="Exit">Log out</a></li>
-                    
+                    <a class="btn-large" style="background-image: linear-gradient(to right,#4A569D,#DC2424);font-size:100%;color:white" href="../index.html" title="Close session">Log out</a>
                 </ul>
             </div>
         </div>
