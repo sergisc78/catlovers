@@ -75,22 +75,56 @@
 
     include('../../config/config.php');
 
+
     $sql_adult = "SELECT * FROM adultcat";
 
     $result = $connection->prepare($sql_adult);
 
     $result->execute();
 
+
+    /* -------------------------------------------- PAGINATION CODE ------------------------------------------- */
+
+    $size_page = 3; /* PAGINATION VARIABLE */
+
     $adultCats = $result->rowCount();
+
+    $pages = ceil($adultCats / $size_page); /*  PAGINATION VARIABLE */
+
+    /* TO SHOW 3 CATS PER PAGE */
+
+    if (!$_GET) { // ALWAYS REDIRECT TO PAGE=1
+
+        header("Location:viewAdultCats.php?page=1");
+    }
+
+    if ($_GET['page'] > $size_page || $_GET['page'] <= 0 ) { // IF PAGE DOESN´T EXIST, REDIRECT TO PAGE=1
+
+        header("Location:viewAdultCats.php?page=1");
+    }
+
+    $beginToCount = ($_GET['page'] - 1) * $size_page;
+
+    $sql_cats = "SELECT * FROM adultcat LIMIT $beginToCount,$size_page";
+
+    $resultLimit = $connection->prepare($sql_cats);
+
+    $resultLimit->execute();
+
+    $adultCountCats = $resultLimit->rowCount();
+
+
+    /* ----------------------------------------- END PAGINATION CODE ---------------------------------------------- */
+
 
     //IF THERE IS ANY CAT
 
     if ($adultCats != 0) {
-        
+
     ?>
 
         <?php
-        foreach ($result as $results) {
+        foreach ($resultLimit as $results) {
             $image = $results['image_adult'];
         ?>
 
@@ -115,6 +149,9 @@
                 </div>
             </div>
 
+            <?php
+            // $sql_limit = "SELECT * FROM adultcat LIMIT $beginToCount,$size_page";
+            ?>
     <?php
 
         }
@@ -123,6 +160,27 @@
     }
 
     ?>
+
+
+    <!-- PAGINATION MATERIALIZE -->
+
+    <ul class="pagination center">
+        <!--<li class="waves-effect <?php echo $_GET['page'] <= $pages ? 'disabled' : '' ?> "><a href="viewAdultCats.php?page=<?php echo $_GET['page'] - 1 ?>"><i class="material-icons">chevron_left</i></a></li>-->
+
+        <!-- FOR PAGINATION -->
+
+        <?php
+
+        for ($i = 0; $i < $pages; $i++) :
+
+        ?>
+
+            <li class="<?php echo $_GET['page'] == $i + 1 ? 'active' : '' ?>"><a href="viewAdultCats.php?page=<?php echo $i + 1 ?>"><?php echo $i + 1 ?></a></li>
+
+            <!-- ENDFOR -->
+        <?php endfor ?>
+        <!--<li class="<?php echo $_GET['page'] >= $pages ? 'disabled' : '' ?> "><a href="viewAdultCats.php?page=<?php echo $_GET['page'] + 1 ?>"><i class="material-icons">chevron_right</i></a></li>-->
+    </ul>
 
 
 
