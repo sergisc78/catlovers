@@ -25,14 +25,14 @@
 
     <!-- CSS FILE -->
 
-    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../../../css/styles.css">
 
-    <!--MATERIALIZE
-    <link rel="stylesheet" href="../css/materialize/css/materialize.min.css"> -->
+    <!--MATERIALIZE -->
+    <link rel="stylesheet" href="../../../css/materialize/css/materialize.min.css"> 
 
     <!--FONT AWESOME-->
 
-    <link rel="stylesheet" href="../../assets/fontAwesome/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../../../assets/fontAwesome/fontawesome/css/all.min.css">
 
     <!-- JQUERY -->
 
@@ -48,7 +48,7 @@
 
     <!-- JS SCRIPT -->
 
-    <script src="../../js/adultCat.js"></script>
+    <script src="../../../js/adultCat.js"></script>
 
 
 </head>
@@ -62,7 +62,7 @@
             <div class="nav-wrapper ">
                 <a id="logo" href="#" class="brand-logo">Catlovers</a><i class="fas fa-cat fa-5x"></i>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a id="options" href="../../views/admin/adminMenuCats.php" class="home">Home</a></li>
+                    <li><a id="options" href="../../../views/admin/adminMenuCats.php" class="home">Home</a></li>
                 </ul>
             </div>
         </div>
@@ -127,10 +127,10 @@
         </div>
     </footer>
 
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- Compiled and minified JavaScript 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>-->
 
-    <!-- <script src="css/materialize/js/materialize.min.js"></script> -->
+     <script src="../../../css/materialize/js/materialize.min.js"></script> 
 
     <!-- JAVASCRIPT ALERTIFY -->
     <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
@@ -153,14 +153,14 @@
 
             $('#name_adult').on('blur', function(e) {
 
-                $('#result-catname').html('<img src="../../assets/images/loader.gif"/>').fadeOut(1000);
+                $('#result-catname').html('<img src="../../../assets/images/loader.gif"/>').fadeOut(1000);
 
                 var name = $(this).val();
                 var dataString = 'name_adult=' + name;
 
                 $.ajax({
                     type: "POST",
-                    url: "../admin/validateCatName.php",
+                    url: "../../../views/admin/adult/validateCatName.php",
                     data: dataString,
                     success: function(data) {
 

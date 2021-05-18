@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign in</title>
+    <title>Insert cat</title>
 
     <!-- MATERIALIZE -->
 
@@ -25,28 +25,31 @@
 
     <!-- CSS FILE -->
 
-    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../../../css/styles.css">
 
-    <!--MATERIALIZE
-<link rel="stylesheet" href="../css/materialize/css/materialize.min.css"> -->
+    <link rel="stylesheet" href="../../../css/styles2.css">
+
+    <!--MATERIALIZE -->
+    <link rel="stylesheet" href="../../../css/materialize/css/materialize.min.css">
 
     <!--FONT AWESOME-->
 
-    <link rel="stylesheet" href="../../assets/fontAwesome/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../../../assets/fontAwesome/fontawesome/css/all.min.css">
 
     <!-- JQUERY -->
 
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
+   <!-- <script src="../../../js/jquery-3.3.1.js"></script>-->
+
     <!-- CSS -->
+
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
 
     <!-- Semantic UI theme -->
+
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css" />
 
-    <!-- JS SCRIPT 
-
-    <script src="../js/alertify.js"></script>-->
 
 </head>
 
@@ -72,7 +75,7 @@
 
     /* CONFIG FILE*/
 
-    include('../../config/config.php');
+    include('../../../config/config.php');
 
     /* VARIABLES*/
 
@@ -127,10 +130,10 @@
 
                 // IF IMAGE IS RIGHT
                 
-                if (move_uploaded_file($temp, '../../assets/images/' . $image_adult)) {
+                if (move_uploaded_file($temp, '../../../assets/images/adult/' . $image_adult)) {
 
                     // WE CHANGE PERMITS
-                    chmod('../../assets/images/' . $image_adult, 0777);
+                    chmod('../../../assets/images/adult/' . $image_adult, 0777);
 
                 } else { // ERROR
                     echo '<div><b>There is an error uploading image</b></div>';
@@ -152,10 +155,10 @@
             $result2->execute();
 
             echo "<div style='text-align:center;margin-top:140px;font-size:50px;'>
-                  <h2 id='message'> Great !</h2>
-                  <h2 id='message'> $name_adult has been registered successfully in the database... wait !</h2> 
+                  <h2 id='message'>Great !</h2> 
+                  <h2 id='message'>$name_adult has been registered successfully in the database</h2> 
                   </div>";
-            header("refresh:8;url=adminMenuCats.php");
+            header("refresh:8;url=../adminMenuCats.php");
         }
     }
 

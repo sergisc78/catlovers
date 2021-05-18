@@ -25,20 +25,22 @@
 
     <!-- CSS FILE -->
 
-    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../../../css/styles.css">
 
-    <link rel="stylesheet" href="../../css/styles2.css">
+    <link rel="stylesheet" href="../../../css/styles2.css">
 
     <!--MATERIALIZE
-    <link rel="stylesheet" href="../css/materialize/css/materialize.min.css"> -->
+    <link rel="stylesheet" href="../../../css/materialize/css/materialize.min.css">-->
 
     <!--FONT AWESOME-->
 
-    <link rel="stylesheet" href="../../assets/fontAwesome/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../../../assets/fontAwesome/fontawesome/css/all.min.css">
 
     <!-- JQUERY -->
 
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+   <!-- <script src="../../../js/jquery-3.3.1.js"></script>-->
 
     <!-- CSS -->
 
@@ -62,7 +64,7 @@
             <div class="nav-wrapper ">
                 <a id="logo" href="#" class="brand-logo">Catlovers</a><i class="fas fa-cat fa-5x"></i>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a id="options" href="../../views/admin/adminMenuCats.php" class="home">Home</a></li>
+                    <li><a id="options" href="../../../views/admin/adminMenuCats.php" class="home">Home</a></li>
                 </ul>
             </div>
         </div>
@@ -73,9 +75,9 @@
 
     <?php
 
-    include('../../config/config.php');
+    include('../../../config/config.php');
 
-    $sql_adult = "SELECT id_adult, name_adult,age_adult,sex_adult,virus FROM adultcat";
+    $sql_adult = "SELECT * FROM adultcat";
 
     $result = $connection->prepare($sql_adult);
 
@@ -84,7 +86,7 @@
     $adultCats = $result->rowCount();
 
     if ($result != 0) {
-        $i = 0;
+
 
     ?>
 
@@ -116,10 +118,18 @@
                         <td><?php echo $results['age_adult'] ?></td>
                         <td><?php echo $results['sex_adult'] ?></td>
                         <td><?php echo $results['virus'] ?></td>
-                        <td><span class="material-icons" title="View cat">visibility</span>&nbsp;&nbsp;&nbsp;<span class="material-icons" title="edit cat">edit
-                            </span>&nbsp;&nbsp;&nbsp;<span class="material-icons" title="Delete cat">delete</span></td>
+
+                        <!-- VIEW / UPDATE HREF -->
+
+                        <td> <a href="viewAdultCat.php?id=<?php echo $results['id_adult'] ?> &image=<?php echo $results['image_adult'] ?> & name=<?php echo $results['name_adult'] ?> & age=<?php echo $results['age_adult'] ?> &sex= <?php echo $results['sex_adult'] ?> & virus=<?php echo $results['virus'] ?> & descr=<?php echo $results['descr_adult'] ?>"><span class="material-icons" title="View / edit cat" name="viewAdult">visibility</span></a>
+
+                            <!-- DELETE HREF-->
+                            <a href="deleteCat.php?id=<?php echo $results['id_adult'] ?>"></span>&nbsp;&nbsp;&nbsp;<span class="material-icons delete" data-id="<?php echo $results['id_adult'] ?>" title="Delete cat">delete</span></a>
+                        </td>
 
                     </tr>
+
+
 
                 <?php
                 }
@@ -130,7 +140,9 @@
         </table>
     <?php
 
-    } ?>
+    }
+    
+    ?>
 
 
     <!-- FOOTER -->
@@ -143,10 +155,10 @@
         </div>
     </footer>
 
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- Compiled and minified JavaScript 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>-->
 
-    <!-- <script src="css/materialize/js/materialize.min.js"></script> -->
+    <script src="../../../css/materialize/js/materialize.min.js"></script>
 
     <!-- JAVASCRIPT ALERTIFY -->
     <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
@@ -156,6 +168,40 @@
         document.addEventListener('DOMContentLoaded', function() {
             var elems = document.querySelectorAll('.sidenav');
             var instances = M.Sidenav.init(elems);
+        });
+
+
+        // /* DELETE INFO BY AJAX */
+
+
+        $(document).ready(function() {
+
+            $(document).on('click', '.delete', function(e) {
+
+                e.preventDefault();
+
+                if (confirm("¿Are you sure you want to delete this cat from database?")) {
+
+                    // VARIABLE ID
+
+                    var id = $(this).attr('data-id');
+
+                    // AJAX
+
+                    $.ajax({
+                        type: "GET",
+                        url: "deleteCat.php?id=" + id,
+
+                        success: function(data) {
+                            alert(data);
+                            window.location.reload();
+                        }
+
+                    });
+
+                }
+            });
+
         });
     </script>
 

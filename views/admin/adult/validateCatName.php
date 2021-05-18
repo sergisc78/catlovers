@@ -20,7 +20,7 @@
 
     /* CONFIG FILE */
 
-    include('../../config/config.php');
+    include('../../../config/config.php');
 
     sleep(1);
 

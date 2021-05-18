@@ -82,8 +82,8 @@
 
         <!-- Dropdown Structure -->
         <ul id='dropdown1' class='dropdown-content'>
-            <li><a href="addAdultCat.php" style="background-image: linear-gradient(to right,#4A569D,#DC2424);font-size:150%;color:white">Add an adult cat</a></li>
-            <li><a href="viewAdultCats.php" style="background-image: linear-gradient(to right,#4A569D,#DC2424);font-size:150%;color:white"> Consult adult cats</li>
+            <li><a href="../admin/adult/addAdultCat.php" style="background-image: linear-gradient(to right,#4A569D,#DC2424);font-size:150%;color:white">Add an adult cat</a></li>
+            <li><a href="../admin/adult/viewAllAdultCats.php" style="background-image: linear-gradient(to right,#4A569D,#DC2424);font-size:150%;color:white"> Consult adult cats</li>
         </ul>
 
         <a class='dropdown-trigger btn-large' href='viewAdultCats.php' data-target='dropdown2' style="background-image: linear-gradient(to right,#4A569D,#DC2424);font-size:150%;">Kitten</a>
