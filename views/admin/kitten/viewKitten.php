@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adult cat : <?php echo $_GET['name']; ?></title>
+    <title>Kitten: <?php echo $_GET['name']; ?></title>
 
     <!-- MATERIALIZE -->
 
@@ -40,7 +40,7 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
-   <!-- <script src="../../../js/jquery-3.3.1.js"></script>-->
+    <!-- <script src="../../../js/jquery-3.3.1.js"></script>-->
 
     <!-- CSS -->
 
@@ -64,7 +64,7 @@
             <div class="nav-wrapper ">
                 <a id="logo" href="#" class="brand-logo">Catlovers</a><i class="fas fa-cat fa-5x"></i>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a id="options" href="../../../views/admin/adult/viewAllAdultCats.php" title="back to options" class="home">Back</a></li>
+                    <li><a id="options" href="../../../views/admin/kitten/viewAllKitten.php" title="back to options" class="home">Back</a></li>
                 </ul>
             </div>
         </div>
@@ -78,18 +78,18 @@
     include('../../../config/config.php');
 
 
-    // VARIABLES OF VIEWALLADULTCATS.PHP
+    // VARIABLES OF VIEWALLKITTEN.PHP
 
     $id = $_GET['id'];
-    $image_adult = $_GET['image'];
-    $name_adult = $_GET['name'];
-    $age_adult = $_GET['age'];
-    $sex_adult = $_GET['sex'];
-    $descr_adult = $_GET['descr'];
+    $image_kitten = $_GET['image'];
+    $name_kitten = $_GET['name'];
+    $age_kitten = $_GET['age'];
+    $sex_kitten = $_GET['sex'];
+    $descr_kitten = $_GET['descr'];
     $virus = $_GET['virus'];
 
 
-    //SHOW SELECTED CAT
+    //SHOW SELECTED KITTEN
 
     ?>
 
@@ -98,22 +98,22 @@
             <div class="col s8 m12">
                 <div class="card">
                     <div class="card-image">
-                        <img src="../../../assets/images/adult/<?php echo $_GET['image']; ?>" width="20%">
+                        <img src="../../../assets/images/kitten/<?php echo $_GET['image']; ?>" width="20%">
 
                     </div>
                     <div class="card-content center">
 
-                        <p hidden style=" font-family: 'Montserrat', sans-serif;">Id <input type="text" name="id_adult" id="id_adult" value="<?php echo $id ?>" style=" font-family: 'Montserrat', sans-serif; "></p><br>
+                        <p hidden style=" font-family: 'Montserrat', sans-serif;">Id <input type="text" name="id_kitten" id="id_kitten" value="<?php echo $id ?>" style=" font-family: 'Montserrat', sans-serif; "></p><br>
 
-                        <p style=" font-family: 'Montserrat', sans-serif;">Name <input type="text" readonly name="name" id="name" value="<?php echo $name_adult ?>" style=" font-family: 'Montserrat', sans-serif; font-size:25px"></p><br>
+                        <p style=" font-family: 'Montserrat', sans-serif;">Name <input type="text" readonly name="name" id="name" value="<?php echo $name_kitten ?>" style=" font-family: 'Montserrat', sans-serif; font-size:25px"></p><br>
 
-                        <p style=" font-family: 'Montserrat', sans-serif;">Age <input type="text" name="age" id="age" value="<?php echo $age_adult ?>" style=" font-family: 'Montserrat', sans-serif;font-size:25px"></p><br>
+                        <p style=" font-family: 'Montserrat', sans-serif;">Age <input type="text" name="age" id="age" value="<?php echo $age_kitten ?>" style=" font-family: 'Montserrat', sans-serif;font-size:25px"></p><br>
 
-                        <p style=" font-family: 'Montserrat', sans-serif;">Sex <input type="text" readonly name="sex" id="name" value="<?php echo $sex_adult ?>" style=" font-family: 'Montserrat', sans-serif;font-size:25px"></p><br>
+                        <p style=" font-family: 'Montserrat', sans-serif;">Sex <input type="text" readonly name="sex" id="name" value="<?php echo $sex_kitten ?>" style=" font-family: 'Montserrat', sans-serif;font-size:25px"></p><br>
 
                         <p style=" font-family: 'Montserrat', sans-serif;">Virus <input type="text" name="virus" id="virus" value=" <?php echo $virus ?>" style=" font-family: 'Montserrat', sans-serif;font-size:25px"></p><br>
 
-                        <p style=" font-family: 'Montserrat', sans-serif;">Description <input type="text" name="descr" id="descr" value="<?php echo $descr_adult ?>" style=" font-family: 'Montserrat', sans-serif; font-size:25px"></p><br>
+                        <p style=" font-family: 'Montserrat', sans-serif;">Description <input type="text" name="descr" id="descr" value="<?php echo $descr_kitten ?>" style=" font-family: 'Montserrat', sans-serif; font-size:25px"></p><br>
 
                     </div>
                     <div class="button">
@@ -166,7 +166,7 @@
 
                     //VARIABLES
 
-                    var id = $('#id_adult').val(),
+                    var id = $('#id_kitten').val(),
                         age = $('#age').val(),
                         virus = $('#virus').val(),
                         descr = $('#descr').val();
@@ -175,7 +175,7 @@
 
                     $.ajax({
                         type: "POST",
-                        url: "updateAdultCat.php",
+                        url: "updateKitten.php",
                         data: {
                             id: id,
                             age: age,
@@ -185,9 +185,8 @@
 
                         success: function(data) {
                             if (data == 1) {
-                                //alertify.confirm().set('message', 'Cat updated!').show(); 
-                                alert('Cat´s info updated')
-                                window.location.href = "../adult/viewAllAdultCats.php";
+                                alert('Cat´s info updated');
+                                window.location.href = "../kitten/viewAllKitten.php";
                             } else {
                                 alert("Something went wrong !");
                             }

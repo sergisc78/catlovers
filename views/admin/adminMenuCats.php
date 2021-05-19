@@ -89,15 +89,15 @@
         <a class='dropdown-trigger btn-large' href='viewAdultCats.php' data-target='dropdown2' style="background-image: linear-gradient(to right,#4A569D,#DC2424);font-size:150%;">Kitten</a>
 
         <ul id='dropdown2' class='dropdown-content'>
-            <li><a href="#!" style="background-image: linear-gradient(to right,#4A569D,#DC2424);font-size:150%;color:white">Add a kitten</a></li>
-            <li><a href="#!" style="background-image: linear-gradient(to right,#4A569D,#DC2424);font-size:150%;color:white">Consult kitten</li>
+            <li><a href="../admin/kitten/addKitten.php" style="background-image: linear-gradient(to right,#4A569D,#DC2424);font-size:150%;color:white">Add a kitten</a></li>
+            <li><a href="../admin/kitten/viewAllKitten.php" style="background-image: linear-gradient(to right,#4A569D,#DC2424);font-size:150%;color:white">Consult kitten</li>
         </ul>
 
         <a class='dropdown-trigger btn-large' href='#' data-target='dropdown3' style="background-image: linear-gradient(to right,#4A569D,#DC2424);font-size:150%;">Special cases</a>
 
         <ul id='dropdown3' class='dropdown-content'>
-            <li><a href="#!" style="background-image: linear-gradient(to right,#4A569D,#DC2424);font-size:150%;color:white">Add a special case</a></li>
-            <li><a href="#!" style="background-image: linear-gradient(to right,#4A569D,#DC2424);font-size:150%;color:white">Consult special cases</li>
+            <li><a href="../admin/special/addSpecial.php" style="background-image: linear-gradient(to right,#4A569D,#DC2424);font-size:150%;color:white">Add a special case</a></li>
+            <li><a href="../admin/special/viewAllSpecial.php" style="background-image: linear-gradient(to right,#4A569D,#DC2424);font-size:150%;color:white">Consult special cases</li>
         </ul>
 
         <a class='dropdown-trigger btn-large' href='#' data-target='dropdown4' style="background-image: linear-gradient(to right,#4A569D,#DC2424);font-size:150%;color:white">Users</a>
