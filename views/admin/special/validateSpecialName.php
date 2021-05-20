@@ -31,11 +31,11 @@
 
     if (isset($_POST)) {
 
-        $name_kitten = $_POST['name_kitten'];
-        $sql_kitten = 'SELECT * FROM kitten WHERE name_kitten=?';
-        $result = $connection->prepare($sql_kitten);
+        $name_special = $_POST['name_special'];
+        $sql_special = 'SELECT * FROM special WHERE name_special=?';
+        $result = $connection->prepare($sql_special);
 
-        $result->bindParam(1, $name_kitten);
+        $result->bindParam(1, $name_special);
 
 
         $result->execute();

@@ -70,7 +70,6 @@
         </div>
     </nav>
 
-
     <!-- PHP -->
 
     <?php
@@ -124,7 +123,13 @@
     ?>
 
         <table class=" highlight centered responsive-table col s3">
-            <h3 class="center" style="font-family: 'Montserrat', sans-serif;">Adult cats</h3><br>
+            <h3 class="center" style="font-family: 'Montserrat', sans-serif;">Adult cats</h3>
+            <div class="input-field col s12" style="margin-right: 100px;float:right">
+                <input type="text" style="width:250px; font-family: 'Montserrat', sans-serif;font-size:25px;background-color:white">
+                <button class="waves-effect waves-light btn" type="disabled" name="submit">Search</button>
+            </div><br>
+
+
 
             <thead>
                 <tr>

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View kittens</title>
+    <title>View special cases</title>
 
     <!-- MATERIALIZE -->
 
@@ -69,15 +69,14 @@
             </div>
         </div>
     </nav>
-
-
+    
     <!-- PHP -->
 
     <?php
 
     include('../../../config/config.php');
 
-    $sql_adult = "SELECT * FROM kitten";
+    $sql_adult = "SELECT * FROM special";
 
     $result = $connection->prepare($sql_adult);
 
@@ -100,12 +99,12 @@
 
     if ($_GET['page'] > $size_page || $_GET['page'] <= 0) { // IF PAGE DOESN´T EXIST, REDIRECT TO PAGE=1
 
-        header("Location:viewAllKitten.php?page=1");
+        header("Location:viewAllSpecial.php?page=1");
     }
 
     $beginToCount = ($_GET['page'] - 1) * $size_page;
 
-    $sql_cats = "SELECT * FROM kitten LIMIT $beginToCount,$size_page";
+    $sql_cats = "SELECT * FROM special LIMIT $beginToCount,$size_page";
 
     $resultLimit = $connection->prepare($sql_cats);
 
@@ -124,7 +123,7 @@
     ?>
 
         <table class=" highlight centered responsive-table col s3">
-            <h3 class="center" style="font-family: 'Montserrat', sans-serif;">Kittens</h3><br>
+            <h3 class="center" style="font-family: 'Montserrat', sans-serif;">Special cases</h3><br>
 
             <thead>
                 <tr>
@@ -146,18 +145,18 @@
                 foreach ($result as $results) {
 
                 ?> <tr>
-                        <td><?php echo $results['id_kitten'] ?></td>
-                        <td><?php echo $results['name_kitten'] ?></td>
-                        <td><?php echo $results['age_kitten'] ?></td>
-                        <td><?php echo $results['sex_kitten'] ?></td>
+                        <td><?php echo $results['id_special'] ?></td>
+                        <td><?php echo $results['name_special'] ?></td>
+                        <td><?php echo $results['age_special'] ?></td>
+                        <td><?php echo $results['sex_special'] ?></td>
                         <td><?php echo $results['virus'] ?></td>
 
                         <!-- VIEW / UPDATE HREF -->
 
-                        <td> <a href="viewKitten.php?id=<?php echo $results['id_kitten'] ?> &image=<?php echo $results['image_kitten'] ?> & name=<?php echo $results['name_kitten'] ?> & age=<?php echo $results['age_kitten'] ?> &sex= <?php echo $results['sex_kitten'] ?> & virus=<?php echo $results['virus'] ?> & descr=<?php echo $results['descr_kitten'] ?>"><span class="material-icons" title="View / Edit kitten" name="viewAdult">visibility</span></a>
+                        <td> <a href="viewSpecial.php?id=<?php echo $results['id_special'] ?> &image=<?php echo $results['image_special'] ?> & name=<?php echo $results['name_special'] ?> & age=<?php echo $results['age_special'] ?> &sex= <?php echo $results['sex_special'] ?> & virus=<?php echo $results['virus'] ?> & descr=<?php echo $results['descr_special'] ?>"><span class="material-icons" title="View / Edit kitten" name="viewAdult">visibility</span></a>
 
                             <!-- DELETE HREF-->
-                            <a href="deleteCat.php?id=<?php echo $results['id_kitten'] ?>"></span>&nbsp;&nbsp;&nbsp;<span class="material-icons delete" data-id="<?php echo $results['id_kitten'] ?>" title="Delete cat">delete</span></a>
+                            <a href="deleteCat.php?id=<?php echo $results['id_special'] ?>"></span>&nbsp;&nbsp;&nbsp;<span class="material-icons delete" data-id="<?php echo $results['id_special'] ?>" title="Delete cat">delete</span></a>
                         </td>
 
                     </tr>
@@ -191,7 +190,7 @@
 
         ?>
 
-            <li class="<?php echo $_GET['page'] == $i + 1 ? 'active' : '' ?>"><a href="viewAllKitten.php?page=<?php echo $i + 1 ?>"><?php echo $i + 1 ?></a></li>
+            <li class="<?php echo $_GET['page'] == $i + 1 ? 'active' : '' ?>"><a href="viewAllSpecial.php?page=<?php echo $i + 1 ?>"><?php echo $i + 1 ?></a></li>
 
             <!-- ENDFOR -->
         <?php endfor ?>
@@ -203,7 +202,7 @@
 
     <!-- FOOTER -->
 
-    <footer class="page-footer" style="background-image: linear-gradient(to right,#4A569D,#DC2424);">
+    <footer class="page-footer" style="background-image: linear-gradient(to right,#4A569D,#DC2424);height:auto">
         <div class="footer-copyright">
             <div class="container center">
                 Copyright © 2021 Sergi Sánchez

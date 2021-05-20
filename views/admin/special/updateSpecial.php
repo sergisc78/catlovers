@@ -10,7 +10,7 @@ $virus = $_POST['virus'];
 
 //UPDATE CAT BY ID
 
-$sql_update = "UPDATE kitten SET age_kitten='$age',descr_kitten='$descr', virus='$virus' WHERE id_kitten='$id' ";
+$sql_update = "UPDATE special SET age_special='$age',descr_special='$descr', virus='$virus' WHERE id_special='$id' ";
 
 $result = $connection->prepare($sql_update);
 $result->execute();

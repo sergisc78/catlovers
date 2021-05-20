@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kitten: <?php echo $_GET['name']; ?></title>
+    <title>Special case: <?php echo $_GET['name']; ?></title>
 
     <!-- MATERIALIZE -->
 
@@ -64,7 +64,7 @@
             <div class="nav-wrapper ">
                 <a id="logo" href="#" class="brand-logo">Catlovers</a><i class="fas fa-cat fa-5x"></i>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a id="options" href="../../../views/admin/kitten/viewAllKitten.php" title="back to options" class="home">Back</a></li>
+                    <li><a id="options" href="../../../views/admin/special/viewAllSpecial.php" title="back to options" class="home">Back</a></li>
                 </ul>
             </div>
         </div>
@@ -81,11 +81,11 @@
     // VARIABLES OF VIEWALLKITTEN.PHP
 
     $id = $_GET['id'];
-    $image_kitten = $_GET['image'];
-    $name_kitten = $_GET['name'];
-    $age_kitten = $_GET['age'];
-    $sex_kitten = $_GET['sex'];
-    $descr_kitten = $_GET['descr'];
+    $image_special = $_GET['image'];
+    $name_special = $_GET['name'];
+    $age_special = $_GET['age'];
+    $sex_special = $_GET['sex'];
+    $descr_special = $_GET['descr'];
     $virus = $_GET['virus'];
 
 
@@ -98,22 +98,22 @@
             <div class="col s8 m12">
                 <div class="card">
                     <div class="card-image">
-                        <img src="../../../assets/images/kitten/<?php echo $_GET['image']; ?>" width="20%">
+                        <img src="../../../assets/images/special/<?php echo $_GET['image']; ?>" width="20%">
 
                     </div>
                     <div class="card-content center">
 
-                        <p hidden style=" font-family: 'Montserrat', sans-serif;">Id <input type="text" name="id_kitten" id="id_kitten" value="<?php echo $id ?>" style=" font-family: 'Montserrat', sans-serif; "></p><br>
+                        <p hidden style=" font-family: 'Montserrat', sans-serif;">Id <input type="text" name="id_special" id="id_special" value="<?php echo $id ?>" style=" font-family: 'Montserrat', sans-serif; "></p><br>
 
-                        <p style=" font-family: 'Montserrat', sans-serif;">Name <input type="text" readonly name="name" id="name" value="<?php echo $name_kitten ?>" style=" font-family: 'Montserrat', sans-serif; font-size:25px"></p><br>
+                        <p style=" font-family: 'Montserrat', sans-serif;">Name <input type="text" readonly name="name" id="name" value="<?php echo $name_special ?>" style=" font-family: 'Montserrat', sans-serif; font-size:25px"></p><br>
 
-                        <p style=" font-family: 'Montserrat', sans-serif;">Age <input type="text" name="age" id="age" value="<?php echo $age_kitten ?>" style=" font-family: 'Montserrat', sans-serif;font-size:25px"></p><br>
+                        <p style=" font-family: 'Montserrat', sans-serif;">Age <input type="text" name="age" id="age" value="<?php echo $age_special ?>" style=" font-family: 'Montserrat', sans-serif;font-size:25px"></p><br>
 
-                        <p style=" font-family: 'Montserrat', sans-serif;">Sex <input type="text" readonly name="sex" id="name" value="<?php echo $sex_kitten ?>" style=" font-family: 'Montserrat', sans-serif;font-size:25px"></p><br>
+                        <p style=" font-family: 'Montserrat', sans-serif;">Sex <input type="text" readonly name="sex" id="name" value="<?php echo $sex_special ?>" style=" font-family: 'Montserrat', sans-serif;font-size:25px"></p><br>
 
                         <p style=" font-family: 'Montserrat', sans-serif;">Virus <input type="text" name="virus" id="virus" value=" <?php echo $virus ?>" style=" font-family: 'Montserrat', sans-serif;font-size:25px"></p><br>
 
-                        <p style=" font-family: 'Montserrat', sans-serif;">Description <input type="text" name="descr" id="descr" value="<?php echo $descr_kitten ?>" style=" font-family: 'Montserrat', sans-serif; font-size:25px"></p><br>
+                        <p style=" font-family: 'Montserrat', sans-serif;">Description <input type="text" name="descr" id="descr" value="<?php echo $descr_special ?>" style=" font-family: 'Montserrat', sans-serif; font-size:25px"></p><br>
 
                     </div>
                     <div class="button">
@@ -166,7 +166,7 @@
 
                     //VARIABLES
 
-                    var id = $('#id_kitten').val(),
+                    var id = $('#id_special').val(),
                         age = $('#age').val(),
                         virus = $('#virus').val(),
                         descr = $('#descr').val();
@@ -175,7 +175,7 @@
 
                     $.ajax({
                         type: "POST",
-                        url: "updateKitten.php",
+                        url: "updateSpecial.php",
                         data: {
                             id: id,
                             age: age,
@@ -186,7 +186,7 @@
                         success: function(data) {
                             if (data == 1) {
                                 alert('Cat´s info updated');
-                                window.location.href = "../kitten/viewAllKitten.php";
+                                window.location.href = "../special/viewAllSpecial.php";
                             } else {
                                 alert("Something went wrong !");
                             }

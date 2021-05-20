@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add special case</title>
+    <title>Add a special case</title>
 
     <!-- MATERIALIZE -->
 
@@ -80,7 +80,7 @@
                     <div class="file-field input-field">
                         <div class="btn-large">
                             <span>Add a special´s image</span>
-                            <input type="file" name="image_kitten">
+                            <input type="file" name="image_special">
                         </div>
                         <div class="file-path-wrapper">
                             <input class="file-path validate" type="text" name="image_special">
@@ -88,7 +88,7 @@
                     </div>
                 </div>
                 <div class="input-field col s6"><br><br>
-                    <input id="name_kitten" type="text" class="validate" name="name_special" style="font-size: 25px;font-family: 'Roboto', sans-serif;">
+                    <input id="name_special" type="text" class="validate" name="name_special" style="font-size: 25px;font-family: 'Roboto', sans-serif;">
                     <label id="label" for="input_text">Name</label>
                     <div id="result-catname" style="font-size: 20px;font-family: 'Roboto', sans-serif;"></div>
                 </div>

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Insert special</title>
+    <title>Insert a special case</title>
 
     <!-- MATERIALIZE -->
 
@@ -108,11 +108,11 @@
         if ($count != 0) {
 
             echo "<div style='text-align:center;margin-top:140px;font-size:50px;'>
-            <span id='message'>This special´s name exist in the database !</span> <br>
+            <span id='message'>This kitten´s name exist in the database !</span> <br>
             <span id='message'>Choose another one !</span> 
             </div>";
 
-            header("refresh:5;url=addSpecial.php");
+            header("refresh:5;url=addKitten.php");
 
 
             /* INSERT KITTEN */
@@ -127,24 +127,24 @@
 
                 // IF IMAGE IS RIGHT
 
-                if (move_uploaded_file($temp, '../../../assets/images/special/' . $image_kitten)) {
+                if (move_uploaded_file($temp, '../../../assets/images/special/' . $image_special)) {
 
                     // WE CHANGE PERMITS
-                    chmod('../../../assets/images/special/' . $image_kitten, 0777);
+                    chmod('../../../assets/images/special/' . $image_special, 0777);
                 } else { // ERROR
                     echo '<div><b>There is an error uploading image</b></div>';
                 }
             }
 
-            $sql_insert = "INSERT INTO kitten (image_kitten,name_kitten,age_kitten, sex_kitten, descr_kitten,virus) VALUES (?,?,?,?,?,?)";
+            $sql_insert = "INSERT INTO special (image_special,name_special,age_special, sex_special, descr_special,virus) VALUES (?,?,?,?,?,?)";
 
             $result2 = $connection->prepare($sql_insert);
 
-            $result2->bindParam(1, $image_kitten);
-            $result2->bindParam(2, $name_kitten);
-            $result2->bindParam(3, $age_kitten);
-            $result2->bindParam(4, $sex_kitten);
-            $result2->bindParam(5, $descr_kitten);
+            $result2->bindParam(1, $image_special);
+            $result2->bindParam(2, $name_special);
+            $result2->bindParam(3, $age_special);
+            $result2->bindParam(4, $sex_special);
+            $result2->bindParam(5, $descr_special);
             $result2->bindParam(6, $virus);
 
 
@@ -153,7 +153,7 @@
 
             echo "<div style='text-align:center;margin-top:140px;font-size:50px;'>
                   <h2 id='message'> Great !</h2>
-                  <h2 id='message'> $name_kitten has been registered successfully in the database... wait !</h2> 
+                  <h2 id='message'> $name_special has been registered successfully in the database... wait !</h2> 
                   </div>";
             header("refresh:8;url=../adminMenuCats.php");
         }

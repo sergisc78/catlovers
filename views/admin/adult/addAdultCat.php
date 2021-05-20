@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="../../../css/styles.css">
 
     <!--MATERIALIZE -->
-    <link rel="stylesheet" href="../../../css/materialize/css/materialize.min.css"> 
+    <link rel="stylesheet" href="../../../css/materialize/css/materialize.min.css">
 
     <!--FONT AWESOME-->
 
@@ -68,7 +68,7 @@
         </div>
     </nav>
 
-
+    
     <!-- FORM ADD ADULT CAT -->
 
     <h3 class="title-form center">Add an adult cat</h3>
@@ -130,7 +130,7 @@
     <!-- Compiled and minified JavaScript 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>-->
 
-     <script src="../../../css/materialize/js/materialize.min.js"></script> 
+    <script src="../../../css/materialize/js/materialize.min.js"></script>
 
     <!-- JAVASCRIPT ALERTIFY -->
     <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
