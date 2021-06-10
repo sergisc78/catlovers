@@ -103,7 +103,7 @@
         <a class='dropdown-trigger btn-large' href='#' data-target='dropdown4' style="background-image: linear-gradient(to right,#4A569D,#DC2424);font-size:150%;color:white">Users</a>
 
         <ul id='dropdown4' class='dropdown-content'>
-            <li><a href="#!" style="background-image: linear-gradient(to right,#4A569D,#DC2424);font-size:150%;color:white">Consult users</a></li>
+            <li><a href="../admin/adminUsers/viewAllUsers.php" style="background-image: linear-gradient(to right,#4A569D,#DC2424);font-size:150%;color:white">Consult users</a></li>
         </ul>
     </div>
 

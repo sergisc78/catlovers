@@ -132,7 +132,7 @@
                 <div class="col s8 m12">
                     <div class="card">
                         <div class="card-image">
-                            <img src="../../assets/images/<?php echo $image ?>" width="20%">
+                            <img src="../../assets/images/adult/<?php echo $image ?>" width="20%">
 
                         </div>
                         <div class="card-content center">

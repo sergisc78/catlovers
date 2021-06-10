@@ -153,7 +153,7 @@
 
             echo "<div style='text-align:center;margin-top:140px;font-size:50px;'>
                   <h2 id='message'> Great !</h2>
-                  <h2 id='message'> $name_kitten has been registered successfully in the database... wait !</h2> 
+                  <h2 id='message'> $name_kitten has been registered successfully in the database !</h2> 
                   </div>";
             header("refresh:8;url=../adminMenuCats.php");
         }

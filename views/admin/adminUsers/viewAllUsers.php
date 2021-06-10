@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View adult cats</title>
+    <title>View users</title>
 
     <!-- MATERIALIZE -->
 
@@ -76,7 +76,7 @@
 
     include('../../../config/config.php');
 
-    $sql_adult = "SELECT * FROM adultcat";
+    $sql_adult = "SELECT * FROM usercat";
 
     $result = $connection->prepare($sql_adult);
 
@@ -86,27 +86,27 @@
 
     $size_page = 3; /* PAGINATION VARIABLE */
 
-    $adultCats = $result->rowCount();
+    $userCats = $result->rowCount();
 
-    $pages = ceil($adultCats / $size_page); /*  PAGINATION VARIABLE */
+    $pages = ceil($userCats / $size_page); /*  PAGINATION VARIABLE */
 
     /* TO SHOW 3 CATS PER PAGE */
 
     if (!$_GET) { // ALWAYS REDIRECT TO PAGE=1
 
-        header("Location:viewAllAdultCats.php?page=1");
+        header("Location:viewAllUsers.php?page=1");
     }
 
     if ($_GET['page'] > $size_page || $_GET['page'] <= 0) { // IF PAGE DOESN´T EXIST, REDIRECT TO PAGE=1
 
-        header("Location:viewAllAdultCats.php?page=1");
+        header("Location:viewAllUsers.php?page=1");
     }
 
     $beginToCount = ($_GET['page'] - 1) * $size_page;
 
-    $sql_cats = "SELECT * FROM adultcat LIMIT $beginToCount,$size_page";
+    $sql_users = "SELECT * FROM usercat LIMIT $beginToCount,$size_page";
 
-    $resultLimit = $connection->prepare($sql_cats);
+    $resultLimit = $connection->prepare($sql_users);
 
     $resultLimit->execute();
 
@@ -123,8 +123,8 @@
     ?>
 
         <table class=" highlight centered responsive-table col s3">
-            <h3 class="center" style="font-family: 'Montserrat', sans-serif;">Adult cats</h3>
-           <!-- <div class="input-field col s12" style="margin-right: 100px;float:right">
+            <h3 class="center" style="font-family: 'Montserrat', sans-serif;">Users</h3>
+            <!-- <div class="input-field col s12" style="margin-right: 100px;float:right">
                 <input type="text" id="search" style="width:250px; font-family: 'Montserrat', sans-serif;font-size:25px;background-color:white">
                 <button class="waves-effect waves-light btn" type="disabled" name="submit">Search</button>-->
             </div><br>
@@ -135,11 +135,10 @@
                 <tr>
 
                     <th>Id</th>
-                    <th>Name</th>
-                    <th>Age</th>
-                    <th>Sex</th>
-                    <th>Virus</th>
+                    <th>Username</th>
+                    <th>Email</th>
                     <th>Actions</th>
+
                 </tr>
 
             </thead>
@@ -152,18 +151,15 @@
 
                 ?> <tr>
                         <div id="result"></div>
-                        <td><?php echo $results['id_adult'] ?></td>
-                        <td><?php echo $results['name_adult'] ?></td>
-                        <td><?php echo $results['age_adult'] ?></td>
-                        <td><?php echo $results['sex_adult'] ?></td>
-                        <td><?php echo $results['virus'] ?></td>
+                        <td><?php echo $results['id_user'] ?></td>
+                        <td><?php echo $results['username'] ?></td>
+                        <td><?php echo $results['user_mail'] ?></td>
 
                         <!-- VIEW / UPDATE HREF -->
 
-                        <td> <a href="viewAdultCat.php?id=<?php echo $results['id_adult'] ?> &image=<?php echo $results['image_adult'] ?> & name=<?php echo $results['name_adult'] ?> & age=<?php echo $results['age_adult'] ?> &sex= <?php echo $results['sex_adult'] ?> & virus=<?php echo $results['virus'] ?> & descr=<?php echo $results['descr_adult'] ?>"><span class="material-icons" title="View / edit cat" name="viewAdult">visibility</span></a>
-
+                        <td> <a href="viewAdultCat.php?id=<?php echo $results['id_user'] ?> &username=<?php echo $results['username'] ?>"><span class="material-icons" title="View / edit cat" name="viewAdult">visibility</span></a>
                             <!-- DELETE HREF-->
-                            <a href="deleteCat.php?id=<?php echo $results['id_adult'] ?>"></span>&nbsp;&nbsp;&nbsp;<span class="material-icons delete" data-id="<?php echo $results['id_adult'] ?>" title="Delete cat">delete</span></a>
+                            <a href="deleteCat.php?id=<?php echo $results['id_user'] ?>"></span>&nbsp;&nbsp;&nbsp;<span class="material-icons delete" data-id="<?php echo $results['id_user'] ?>" title="Delete User">delete</span></a>
                         </td>
 
                     </tr>
@@ -197,7 +193,7 @@
 
         ?>
 
-            <li class="<?php echo $_GET['page'] == $i + 1 ? 'active' : '' ?>"><a href="viewAllAdultCats.php?page=<?php echo $i + 1 ?>"><?php echo $i + 1 ?></a></li>
+            <li class="<?php echo $_GET['page'] == $i + 1 ? 'active' : '' ?>"><a href="viewAllUsers.php?page=<?php echo $i + 1 ?>"><?php echo $i + 1 ?></a></li>
 
             <!-- ENDFOR -->
         <?php endfor ?>
@@ -247,7 +243,7 @@
                     // VARIABLE ID
 
                     var id = $(this).attr('data-id');
-                    
+
 
                     // AJAX
 
@@ -270,31 +266,31 @@
                 e.preventDefault();
 
                 var searchCat = $("#search").val();
-               
+
                 //console.log(searchCat);
 
-                if (searchCat !=''){
+                if (searchCat != '') {
 
                     $.ajax({
-                    type: "POST",
-                    url: "search.php",
-                    data: {
-                        search: searchCat
-                    },
-                    dataType:'text',
-                    success: function(data) {
-                       console.log(data);
-                       // $("#result").html(response);
-                    }
-                });
+                        type: "POST",
+                        url: "search.php",
+                        data: {
+                            search: searchCat
+                        },
+                        dataType: 'text',
+                        success: function(data) {
+                            console.log(data);
+                            // $("#result").html(response);
+                        }
+                    });
 
 
-                }else{
-                    console.log("No data found");
+                } else {
+                    console.log("Shit man");
 
                 }
 
-                
+
             });
 
         });
