@@ -7,12 +7,12 @@ $id=$_GET['id'];
 
 //DELETE CAT BY ID
 
-$sql_delete = "DELETE FROM special WHERE id_special=$id";
+$sql_delete = "DELETE FROM usercat WHERE id_user=$id";
 $result = $connection->prepare($sql_delete);
 $result->execute();
 
 if ($result) {
-    echo "Special case deleted successfully";
+    echo "User deleted successfully";
 } else {
     echo "Error !";
 }

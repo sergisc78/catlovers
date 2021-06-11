@@ -84,7 +84,7 @@
 
     /* -------------------------------------------- PAGINATION CODE ------------------------------------------- */
 
-    $size_page = 3; /* PAGINATION VARIABLE */
+    $size_page = 10; /* PAGINATION VARIABLE */
 
     $userCats = $result->rowCount();
 
@@ -110,7 +110,7 @@
 
     $resultLimit->execute();
 
-    $adultCountCats = $resultLimit->rowCount();
+    $adultCountCats = $resultLimit->fetchAll();
 
 
     /* ----------------------------------------- END PAGINATION CODE ---------------------------------------------- */
@@ -124,9 +124,9 @@
 
         <table class=" highlight centered responsive-table col s3">
             <h3 class="center" style="font-family: 'Montserrat', sans-serif;">Users</h3>
-            <!-- <div class="input-field col s12" style="margin-right: 100px;float:right">
-                <input type="text" id="search" style="width:250px; font-family: 'Montserrat', sans-serif;font-size:25px;background-color:white">
-                <button class="waves-effect waves-light btn" type="disabled" name="submit">Search</button>-->
+            <div class="input-field col s12" style="margin-right: 100px;float:right">
+                <input type="text" id="search" class="autocomplete" style="width:250px; font-family: 'Montserrat', sans-serif;font-size:25px;background-color:white">
+                <button class="waves-effect waves-light btn" type="disabled" name="submit">Search</button>
             </div><br>
 
 
@@ -147,7 +147,7 @@
 
                 <?php
 
-                foreach ($result as $results) {
+                foreach ($adultCountCats as $results) {
 
                 ?> <tr>
                         <div id="result"></div>
@@ -238,7 +238,7 @@
 
                 e.preventDefault();
 
-                if (confirm("¿Are you sure you want to delete this cat from database?")) {
+                if (confirm("¿Are you sure you want to delete this user from database?")) {
 
                     // VARIABLE ID
 
@@ -249,7 +249,7 @@
 
                     $.ajax({
                         type: "GET",
-                        url: "deleteCat.php?id=" + id,
+                        url: "deleteUser.php?id=" + id,
 
                         success: function(data) {
                             alert(data);
@@ -265,7 +265,7 @@
 
                 e.preventDefault();
 
-                var searchCat = $("#search").val();
+                var searchCat = $("#search").val.toLowerCase();
 
                 //console.log(searchCat);
 

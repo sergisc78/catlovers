@@ -111,7 +111,7 @@
 
     $resultLimit->execute();
 
-    $adultCountCats = $resultLimit->rowCount();
+    $kittenCountCats = $resultLimit->fetchAll();
 
 
     /* ----------------------------------------- END PAGINATION CODE ---------------------------------------------- */
@@ -143,7 +143,7 @@
 
                 <?php
 
-                foreach ($result as $results) {
+                foreach ($kittenCountCats as $results) {
 
                 ?> <tr>
                         <td><?php echo $results['id_kitten'] ?></td>

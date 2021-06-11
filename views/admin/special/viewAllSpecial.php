@@ -110,7 +110,7 @@
 
     $resultLimit->execute();
 
-    $adultCountCats = $resultLimit->rowCount();
+    $specialCountCats = $resultLimit->fetchAll();
 
 
     /* ----------------------------------------- END PAGINATION CODE ---------------------------------------------- */
@@ -142,7 +142,7 @@
 
                 <?php
 
-                foreach ($result as $results) {
+                foreach ($specialCountCats as $results) {
 
                 ?> <tr>
                         <td><?php echo $results['id_special'] ?></td>

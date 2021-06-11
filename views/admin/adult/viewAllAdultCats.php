@@ -84,7 +84,7 @@
 
     /* -------------------------------------------- PAGINATION CODE ------------------------------------------- */
 
-    $size_page = 3; /* PAGINATION VARIABLE */
+    $size_page = 5; /* PAGINATION VARIABLE */
 
     $adultCats = $result->rowCount();
 
@@ -110,7 +110,7 @@
 
     $resultLimit->execute();
 
-    $adultCountCats = $resultLimit->rowCount();
+    $adultCountCats = $resultLimit->fetchAll();
 
 
     /* ----------------------------------------- END PAGINATION CODE ---------------------------------------------- */
@@ -148,7 +148,7 @@
 
                 <?php
 
-                foreach ($result as $results) {
+                foreach ($adultCountCats as $results) {
 
                 ?> <tr>
                         <div id="result"></div>

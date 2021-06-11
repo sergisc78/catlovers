@@ -12,7 +12,7 @@ $result = $connection->prepare($sql_delete);
 $result->execute();
 
 if ($result) {
-    echo "Cat deleted succesfully";
+    echo "Cat deleted successfully";
 } else {
     echo "Error !";
 }
