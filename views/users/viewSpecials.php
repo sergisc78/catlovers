@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View adult Cats</title>
+    <title>View Specials</title>
 
     <!-- MATERIALIZE -->
 
@@ -76,9 +76,9 @@
     include('../../config/config.php');
 
 
-    $sql_adult = "SELECT * FROM adultcat";
+    $sql_special = "SELECT * FROM special";
 
-    $result = $connection->prepare($sql_adult);
+    $result = $connection->prepare($sql_special);
 
     $result->execute();
 
@@ -87,31 +87,31 @@
 
     $size_page = 3; /* PAGINATION VARIABLE */
 
-    $adultCats = $result->rowCount();
+    $special = $result->rowCount();
 
-    $pages = ceil($adultCats / $size_page); /*  PAGINATION VARIABLE */
+    $pages = ceil($special / $size_page); /*  PAGINATION VARIABLE */
 
     /* TO SHOW 3 CATS PER PAGE */
 
     if (!$_GET) { // ALWAYS REDIRECT TO PAGE=1
 
-        header("Location:viewAdultCats.php?page=1");
+        header("Location:viewSpecials.php?page=1");
     }
 
     if ($_GET['page'] > $size_page || $_GET['page'] <= 0 ) { // IF PAGE DOESN´T EXIST, REDIRECT TO PAGE=1
 
-        header("Location:viewAdultCats.php?page=1");
+        header("Location:viewSpecials.php?page=1");
     }
 
     $beginToCount = ($_GET['page'] - 1) * $size_page;
 
-    $sql_cats = "SELECT * FROM adultcat LIMIT $beginToCount,$size_page";
+    $sql_cats = "SELECT * FROM special LIMIT $beginToCount,$size_page";
 
     $resultLimit = $connection->prepare($sql_cats);
 
     $resultLimit->execute();
 
-    $adultCountCats = $resultLimit->rowCount();
+    $specialCount = $resultLimit->rowCount();
 
 
     /* ----------------------------------------- END PAGINATION CODE ---------------------------------------------- */
@@ -119,28 +119,28 @@
 
     //IF THERE IS ANY CAT
 
-    if ($adultCats != 0) {
+    if ($specialCount != 0) {
 
     ?>
 
         <?php
         foreach ($resultLimit as $results) {
-            $image = $results['image_adult'];
+            $image = $results['image_special'];
         ?>
 
             <div class="row" style="margin-left: 350px; margin-top:20px;display:inline-block;font-size:25px">
                 <div class="col s8 m12">
                     <div class="card">
                         <div class="card-image">
-                            <img src="../../assets/images/adult/<?php echo $image ?>" width="20%">
+                            <img src="../../assets/images/special/<?php echo $image ?>" width="20%">
 
                         </div>
                         <div class="card-content center">
-                            <p style=" font-family: 'Montserrat', sans-serif;">Name : <?php echo $results['name_adult'] ?></p>
-                            <p style=" font-family: 'Montserrat', sans-serif;">Age : <?php echo $results['age_adult'] ?></p>
-                            <p style=" font-family: 'Montserrat', sans-serif;">Sex: <?php echo $results['sex_adult'] ?></p>
+                            <p style=" font-family: 'Montserrat', sans-serif;">Name : <?php echo $results['name_special'] ?></p>
+                            <p style=" font-family: 'Montserrat', sans-serif;">Age : <?php echo $results['age_special'] ?></p>
+                            <p style=" font-family: 'Montserrat', sans-serif;">Sex: <?php echo $results['sex_special'] ?></p>
                             <p style=" font-family: 'Montserrat', sans-serif;">Virus: <?php echo $results['virus'] ?></p>
-                            <p style=" font-family: 'Montserrat', sans-serif;">Description : <?php echo $results['descr_adult'] ?> </p>
+                            <p style=" font-family: 'Montserrat', sans-serif;">Description : <?php echo $results['descr_special'] ?> </p>
                         </div>
                         <div class="button">
                             <button class="btn-large" style="display:block;margin-left: auto;margin-right: auto;background-image: linear-gradient(to right,#4A569D,#DC2424);font-size:25px">Would you like to adopt me ?</button>
@@ -175,7 +175,7 @@
 
         ?>
 
-            <li class="<?php echo $_GET['page'] == $i + 1 ? 'active' : '' ?>"><a href="viewAdultCats.php?page=<?php echo $i + 1 ?>"><?php echo $i + 1 ?></a></li>
+            <li class="<?php echo $_GET['page'] == $i + 1 ? 'active' : '' ?>"><a href="viewSpecials.php?page=<?php echo $i + 1 ?>"><?php echo $i + 1 ?></a></li>
 
             <!-- ENDFOR -->
         <?php endfor ?>

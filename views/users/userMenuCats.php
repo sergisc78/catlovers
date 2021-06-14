@@ -83,9 +83,9 @@
         <h4>Choose an option to consult the cats we have for adoption</h4><br>
         <a href="viewAdultCats.php"><button class="waves-effect waves-light btn-large" style="background-image: linear-gradient(to right,#4A569D,#DC2424);font-size:150%;">Adult cats
             </button></a>
-        <a href="#"><button class="waves-effect waves-light btn-large" style="background-image: linear-gradient(to right,#4A569D,#DC2424);font-size:150%;">Kitten
+        <a href="viewKittens.php"><button class="waves-effect waves-light btn-large" style="background-image: linear-gradient(to right,#4A569D,#DC2424);font-size:150%;">Kitten
             </button></a>
-        <a href="#"><button class="waves-effect waves-light btn-large" style="background-image: linear-gradient(to right,#4A569D,#DC2424);font-size:150%;">Special cases
+        <a href="viewSpecials.php"><button class="waves-effect waves-light btn-large" style="background-image: linear-gradient(to right,#4A569D,#DC2424);font-size:150%;">Special cases
             </button></a>
 
     </div>

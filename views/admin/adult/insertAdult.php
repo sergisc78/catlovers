@@ -63,7 +63,7 @@
             <div class="nav-wrapper ">
                 <a id="logo" href="#" class="brand-logo">Catlovers</a><i class="fas fa-cat fa-5x"></i>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="../admin/addAdultCat.php">Back to register</a></li>
+                    <li><a href="addAdultCat.php">Back to register</a></li>
                 </ul>
             </div>
         </div>
@@ -85,6 +85,7 @@
     $descr_adult = $_POST['descr_adult'];
     $virus = $_POST['virus'];
 
+    
 
     /* IF CAT EXIST */
 
@@ -96,6 +97,7 @@
         $type = $_FILES['image_adult']['type'];
         $size = $_FILES['image_adult']['size'];
         $temp = $_FILES['image_adult']['tmp_name'];
+        
 
         $sql_adult = 'SELECT * FROM adultcat WHERE name_adult=?';
         $result = $connection->prepare($sql_adult);
@@ -133,10 +135,11 @@
                 if (move_uploaded_file($temp, '../../../assets/images/adult/' . $image_adult)) {
 
                     // WE CHANGE PERMITS
-                    chmod('../../../assets/images/adult/' . $image_adult, 0777);
+                   // chmod('../../../assets/images/adult/' . $image_adult, 0777);
 
                 } else { // ERROR
                     echo '<div><b>There is an error uploading image</b></div>';
+                    echo $temp;
                 }
             }
 
@@ -162,6 +165,7 @@
         }
     }
 
+    header("../../")
 
     ?>
 
