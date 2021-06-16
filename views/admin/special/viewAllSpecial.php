@@ -153,7 +153,7 @@
 
                         <!-- VIEW / UPDATE HREF -->
 
-                        <td> <a href="viewSpecial.php?id=<?php echo $results['id_special'] ?> &image=<?php echo $results['image_special'] ?> & name=<?php echo $results['name_special'] ?> & age=<?php echo $results['age_special'] ?> &sex= <?php echo $results['sex_special'] ?> & virus=<?php echo $results['virus'] ?> & descr=<?php echo $results['descr_special'] ?>"><span class="material-icons" title="View / Edit kitten" name="viewAdult">visibility</span></a>
+                        <td> <a href="viewSpecial.php?id=<?php echo $results['id_special'] ?> &image=<?php echo $results['image_special'] ?> & name=<?php echo $results['name_special'] ?> & age=<?php echo $results['age_special'] ?> &sex= <?php echo $results['sex_special'] ?> & virus=<?php echo $results['virus'] ?> & descr=<?php echo $results['descr_special'] ?>"><span class="material-icons" title="View / Edit special" name="viewAdult">visibility</span></a>
 
                             <!-- DELETE HREF-->
                             <a href="deleteCat.php?id=<?php echo $results['id_special'] ?>"></span>&nbsp;&nbsp;&nbsp;<span class="material-icons delete" data-id="<?php echo $results['id_special'] ?>" title="Delete cat">delete</span></a>

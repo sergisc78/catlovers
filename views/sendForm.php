@@ -55,48 +55,65 @@
         </div>
     </nav>
 
-    <!--INTRO -->
 
 
-    <div class="intro center" style="margin-top:150px;">
-        <h4>We are a non-profit organization that rescues stray cats and tries to find them an adopter.</h4>
-        <h4> If you have any questions, fill out the form and we will answer you shortly.</h4><br>
 
-    </div><br>
 
-    <section class="container">
+<?php
 
-        <div class="row">
-            <form class="col s12" action="sendForm.php" method="POST">
+ini_set('display_errors', '1');
 
-                <div class="row card-panel">
-                    <div class="input-field col s6"><br><br>
-                        <input id="name" type="text" class="validate" required name="name"
-                            style="font-size: 25px;font-family: 'Roboto', sans-serif;">
-                        <label id="label" for="icon_text">Name</label>
-                    </div>
-                    <div class="input-field col s6"><br><br>
-                        <input id="email" type="email" class="validate" required name="email"
-                            style="font-size: 25px;font-family: 'Roboto', sans-serif;">
-                        <label id="label" for="icon_prefix">Email</label>
-                    </div>
-                    <div class="input-field col s6"><br><br>
-                        <textarea id="textarea1" name="message" class="materialize-textarea" required style="font-size: 25px;font-family: 'Roboto', sans-serif;"></textarea>
-                        <label for="textarea1" style="font-family: 'Montserrat', sans-serif;font-size: 25px;color: black;">Message</label>
-                    </div>
-                   
+$name=$_POST['name'];
+$email=$_POST['email'];
+$message=$_POST['message'];
+
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+
+
+require 'PHPMailer/Exception.php';
+require 'PHPMailer/PHPMailer.php';
+require 'PHPMailer/SMTP.php';
+
+//$body= 'Name:' .$name. '<br>Correo:' .$email . '<br>Message'. $message;
+
+//Instantiation and passing `true` enables exceptions
+$mail = new PHPMailer(true);
+
+
+
+try {
     
-                </div><br>
-                
-                <button id="send" class="waves-effect waves-light btn-large center-align" type="submit"
-                name="submit">Send</button>
+    //Server settings
+    //$mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
+    $mail->isSMTP();                                            //Send using SMTP
+    $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
+    $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+    $mail->Username   = '***************@gmail.com';                     //SMTP username
+    $mail->Password   = '***********';                               //SMTP password
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         //Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
+    $mail->Port       = 587;                                    //TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
 
-            </form>
-        </div>
-    </section>
+    //Recipients
+    $mail->setFrom($email, $name);
+    $mail->addAddress('pacopaquito1978@gmail.com', 'Sergi'); 
+    $mail->addReplyTo($email, $name);
+    
+    //Content
+    $mail->isHTML(true);                                  //Set email format to HTML
+    $mail->Subject = 'Message send by' .$name;
+    $mail->Body    = 'This is the HTML message body by' .$name;
+    $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
+    $mail->send();
+    echo 'Message has been sent';
+} catch (Exception $e) {
+    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+}
 
-
+?>
 
 
     <!-- FOOTER -->
@@ -109,17 +126,14 @@
         </div>
     </footer>
 
-     Compiled and minified JavaScript 
+     <!--Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
     
     <!-- JAVASCRIPT ALERTIFY -->
     <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
 
-    <script>
-        $('#textarea1').val('');
-        M.textareaAutoResize($('#textarea1'));
-    </script>
+    
 
 </body>
 
