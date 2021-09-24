@@ -143,11 +143,15 @@
                             <p style=" font-family: 'Montserrat', sans-serif;">Description : <?php echo $results['descr_adult'] ?> </p>
                         </div>
                         <div class="button">
-                            <button class="btn-large" style="display:block;margin-left: auto;margin-right: auto;background-image: linear-gradient(to right,#4A569D,#DC2424);font-size:25px">Would you like to adopt me ?</button>
+                        <a class="btn-large" name="adopt" href="adoptAdult.php?id=<?php echo $results['id_adult'] ?> & name=<?php echo $results['name_adult'] ?>" style="display:block;margin-left:auto;margin-right:auto;background-image: linear-gradient(to right,#4A569D,#DC2424);font-size:25px">Would you like to adopt me ?</a>
+
                         </div><br>
+                       
                     </div>
                 </div>
             </div>
+
+            <!--<a name="adopt" href="adoptAdultCat.php?id=<?php echo $results['id_adult'] ?> & name=<?php echo $results['name_adult'] ?>" style="display:block;margin-left:auto;margin-right:auto;background-image: linear-gradient(to right,#4A569D,#DC2424);font-size:25px">Would you like to adopt me ?</a>-->
 
             <?php
             // $sql_limit = "SELECT * FROM adultcat LIMIT $beginToCount,$size_page";
@@ -181,7 +185,6 @@
         <?php endfor ?>
         <!--<li class="<?php echo $_GET['page'] >= $pages ? 'disabled' : '' ?> "><a href="viewAdultCats.php?page=<?php echo $_GET['page'] + 1 ?>"><i class="material-icons">chevron_right</i></a></li>-->
     </ul>
-
 
 
 
