@@ -53,6 +53,7 @@
 include('../../../config/config.php');
 
 
+$name = $_GET['name'];
 
 
 
@@ -65,16 +66,18 @@ include('../../../config/config.php');
             <div class="nav-wrapper ">
                 <a id="logo" href="#" class="brand-logo">Catlovers</a><i class="fas fa-cat fa-5x"></i>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a id="options" href="../../../views/admin/adminMenuCats.php" class="home">Home</a></li>
+                    <li><a id="options" href="../../views/admin/adminMenuCats.php" class="home">Home</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
 
-    <main>
+    <main  style=" font-family: 'Montserrat', sans-serif;font-size:25px;margin-top:100px">
 
-    If you are interested to adopt
+    <p class="center-align">If you are interested to adopt <?php echo $name ?>, please send an email to catlovers@gmail.com </p>
+    <p class="center-align">The subject line will be AdoptAdult:<?php echo $name ?></p>
+    <p class="center-align">Thank you !!</p>
 
     </main>
 
