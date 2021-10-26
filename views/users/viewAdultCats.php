@@ -62,7 +62,7 @@
             <div class="nav-wrapper ">
                 <a id="logo" href="#" class="brand-logo">Catlovers</a><i class="fas fa-cat fa-5x"></i>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a id="options" href="../../views/users/userMenuCats.php" title="back to options" class="home">Home</a></li>
+                    <li><a id="options" href="../../views/users/userMenuCats.php" title="back to options" class="home">Back</a></li>
                 </ul>
             </div>
         </div>

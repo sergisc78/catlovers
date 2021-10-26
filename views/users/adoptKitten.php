@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adopt adult cat</title>
+    <title>Adopt kitten</title>
 
     <!-- MATERIALIZE -->
 
@@ -66,8 +66,8 @@ $name = $_GET['name'];
             <div class="nav-wrapper ">
                 <a id="logo" href="#" class="brand-logo">Catlovers</a><i class="fas fa-cat fa-5x"></i>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a id="options" href="../../views/users/userMenuCats.php" class="home">Home</a></li>
-                    <li><a id="options" href="../../views/users/viewAdultCats.php" class="home">Back</a></li>
+                <li><a id="options" href="../../views/users/userMenuCats.php" class="home">Home</a></li>
+                    <li><a id="options" href="../../views/users/viewKittens.php" class="home">Back</a></li>
                 </ul>
             </div>
         </div>
@@ -77,7 +77,7 @@ $name = $_GET['name'];
     <main  style=" font-family: 'Montserrat', sans-serif;font-size:25px;margin-top:100px">
 
     <p class="center-align">If you are interested to adopt <?php echo $name ?>, please send an email to catlovers@gmail.com </p>
-    <p class="center-align">The subject line will be AdoptAdult:<?php echo $name ?></p>
+    <p class="center-align">The subject line will be AdoptKitten:<?php echo $name ?></p>
     <p class="center-align">Thank you !!</p>
 
     </main>
